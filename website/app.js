@@ -108,11 +108,12 @@
     visible.forEach(product => {
       const card = document.createElement("article");
       card.className = "step-card product-card";
+      const art = document.createElement("div"); art.className = "product-art " + (product.category === "Key" ? "key-art" : "rank-art"); art.setAttribute("aria-hidden","true"); art.textContent = product.category === "Key" ? "🗝" : "♛";
       const eyebrow = document.createElement("p"); eyebrow.className = "eyebrow"; eyebrow.textContent = labels[activeCategory];
       const name = document.createElement("h3"); name.textContent = product.name;
       const desc = document.createElement("p"); desc.textContent = product.description || "";
       const price = document.createElement("p"); price.className = "product-price"; price.textContent = coinsFormat.format(product.coins)+" Coins · "+inr.format(product.price);
-      card.append(eyebrow,name,desc,price);
+      card.append(art,eyebrow,name,desc,price);
       if (product.duration) { const duration=document.createElement("p"); duration.className="product-meta"; duration.textContent="Duration: "+product.duration; card.append(duration); }
       const add = document.createElement("button");
       add.className="server-tab active add-to-cart"; add.type="button"; add.textContent="Add to cart";
