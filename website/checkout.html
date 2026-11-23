@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#090812">
+<title>Checkout Preview | MortalShade Store</title><link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<header class="site-header"><a class="brand" href="./index.html"><span class="brand-mark logo-frame"><img src="./assets/server-logo.png" alt="MortalShade logo" onerror="this.style.display='none';this.parentElement.textContent='M'"></span><span>MORTAL<span class="brand-accent">SHADE</span><small>SECURE CHECKOUT</small></span></a><a class="server-tab" href="./store.html#collection">← Back to store</a></header>
+<main class="checkout-main">
+<p class="eyebrow">ORDER DETAILS</p><h1>CHECKOUT <span style="color:#b58aff">PREVIEW</span></h1>
+<p style="color:#aaa3b7;font-size:13px;line-height:1.7">Enter the Minecraft account that should receive your items. This page is a design preview only.</p>
+<div class="checkout-grid">
+<section class="checkout-card">
+<h2>Player information</h2>
+<form id="preview-form">
+<label class="checkout-field">Minecraft username<input id="player-name" name="player" required maxlength="16" pattern="[A-Za-z0-9_]{3,16}" placeholder="YourMinecraftName"></label>
+<label class="checkout-field">Deliver to server<select id="delivery-server" required><option value="">Choose server</option><option value="lifesteal">LifeSteal</option><option value="survival">Survival</option><option value="bedwars">BedWars</option><option value="pvp">PvP / Mini-Games</option></select></label>
+<label class="checkout-field">Payment method preview<select id="payment-method"><option>UPI</option><option>Debit / Credit Card</option><option>Net Banking</option></select></label>
+<div class="checkout-warning"><strong>Demo checkout — no money will be charged.</strong><br>Real payment gateway integration will be added later. Do not send money manually or share UPI PINs, OTPs or passwords.</div>
+<button class="primary-button checkout-submit" type="submit">REVIEW ORDER (DEMO)</button>
+<p id="preview-result" aria-live="polite" style="color:#bca6e8;font-size:12px;line-height:1.7"></p>
+</form>
+</section>
+<aside class="checkout-summary"><h2>Your order</h2><div id="checkout-items" class="checkout-items"></div><div class="checkout-total"><span>Total</span><strong id="checkout-total">₹0</strong></div><p style="color:#aaa3b7;font-size:11px;line-height:1.7">Prices shown in INR. This preview does not create a paid order.</p></aside>
+</div></main>
+<script>
+(()=>{const fmt=new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:2});let cart=[];try{cart=JSON.parse(localStorage.getItem('mortalshade-cart')||'[]')}catch(e){}if(!Array.isArray(cart))cart=[];const list=document.getElementById('checkout-items');let total=0;if(!cart.length){list.innerHTML='<p class="checkout-empty">Your cart is empty. Return to the store and add a rank or key.</p>'}else{cart.forEach(item=>{total+=Number(item.price)||0;const row=document.createElement('div');row.className='checkout-item';const name=document.createElement('span');name.textContent=item.name+' · '+(item.server==='lifesteal'?'LifeSteal':'Survival');const price=document.createElement('strong');price.textContent=fmt.format(Number(item.price)||0);row.append(name,price);list.append(row)})}document.getElementById('checkout-total').textContent=fmt.format(total);document.getElementById('preview-form').addEventListener('submit',e=>{e.preventDefault();if(!cart.length){document.getElementById('preview-result').textContent='Your cart is empty. Add an item before continuing.';return}const name=document.getElementById('player-name').value.trim();const server=document.getElementById('delivery-server').value;const matches=cart.every(item=>item.server===server);document.getElementById('preview-result').textContent='Preview saved on this page for '+name+'. '+(matches?'Selected server matches your cart.':'Note: your cart contains items for a different server; real checkout will ask you to split the order. No payment was taken.');});})();
+</script>
+</body></html>
