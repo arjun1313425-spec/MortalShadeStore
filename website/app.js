@@ -10,6 +10,8 @@
   const coinInput = document.getElementById("coin-amount");
   const inrOutput = document.getElementById("inr-output");
   const COINS_PER_INR = 5;
+  const SERVER_HOST = "play.mortalshade.fun";
+  const BEDROCK_PORT = 19135;
   const labels = {
     "lifesteal-ranks": "LifeSteal Ranks",
     "lifesteal-keys": "LifeSteal Keys",
@@ -24,6 +26,25 @@
 
   function saveCart() {
     try { localStorage.setItem("mortalshade-cart", JSON.stringify(cart)); } catch (_) {}
+  }
+  async function updateServerStatus() {
+    const statusText=document.getElementById("server-status-text");
+    const countText=document.getElementById("server-player-count");
+    const light=document.getElementById("server-status-light");
+    if(!statusText || !countText) return;
+    try {
+      const response=await fetch("https://api.mcstatus.io/v2/status/bedrock/"+SERVER_HOST+":"+BEDROCK_PORT,{cache:"no-store"});
+      if(!response.ok) throw new Error("Status unavailable");
+      const data=await response.json();
+      if(data.online) {
+        statusText.textContent="SERVER ONLINE";
+        countText.textContent=(data.players?.online ?? 0)+" / "+(data.players?.max ?? "?")+" players online";
+        if(light) light.classList.add("online");
+      } else {
+        statusText.textContent="SERVER OFFLINE"; countText.textContent="No response from the Bedrock endpoint";
+        if(light) light.classList.remove("online");
+      }
+    } catch (_) { statusText.textContent="STATUS UNAVAILABLE"; countText.textContent="Live player count could not be loaded"; if(light) light.classList.remove("online"); }
   }
   function updateCalculator() {
     if (!coinInput || !inrOutput) return;
@@ -113,6 +134,8 @@
     });
   }
   if (coinInput) coinInput.addEventListener("input",updateCalculator);
+  const copyIp=document.getElementById("copy-server-ip");
+  if(copyIp) copyIp.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(SERVER_HOST);copyIp.classList.add("copied");copyIp.querySelector("small").textContent="IP COPIED!";window.setTimeout(()=>{copyIp.classList.remove("copied");copyIp.querySelector("small").textContent="BEDROCK PORT: 19135 · TAP TO COPY";},1800);}catch(_){copyIp.querySelector("small").textContent=SERVER_HOST+":"+BEDROCK_PORT;}});
   if (cartButton && cartDialog) cartButton.addEventListener("click",()=>cartDialog.showModal());
   const close=document.getElementById("close-cart");
   if (close && cartDialog) close.addEventListener("click",()=>cartDialog.close());
@@ -120,4 +143,6 @@
   const year=document.getElementById("year");
   if(year) year.textContent=String(new Date().getFullYear());
   updateCalculator(); updateCart(); renderProducts();
+  updateServerStatus();
+  if(document.getElementById("server-status-text")) window.setInterval(updateServerStatus,120000);
 })();
