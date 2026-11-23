@@ -5,23 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#090812">
   <meta name="description" content="The official MortalShade Network store.">
-  <title>MortalShade Store</title>
+  <title>MortalShade Network Store</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
-  <script src="./products.js" defer></script>
   <script src="./app.js" defer></script>
 </head>
 <body>
-  <div class="announcement">WELCOME TO THE OFFICIAL MORTALSHADE NETWORK STORE</div>
   <header class="site-header">
-    <a class="brand" href="#" aria-label="MortalShade Store home">
+    <a class="brand" href="./index.html" aria-label="MortalShade Store home">
       <span class="brand-mark">M</span>
       <span>MORTAL<span class="brand-accent">SHADE</span><small>NETWORK STORE</small></span>
     </a>
     <nav aria-label="Main navigation">
-      <a href="#store">Store</a>
+      <a href="./store.html#collection">Store</a>
       <a href="#how-it-works">How it works</a>
       <a href="#support">Support</a>
     </nav>
@@ -29,16 +27,15 @@
       Cart <span id="cart-count">0</span>
     </button>
   </header>
-
   <main>
-    <section class="hero">
+    <section class="hero home-hero">
       <div class="hero-glow"></div>
       <div class="hero-content">
         <p class="eyebrow"><span class="live-dot"></span> OFFICIAL SERVER STORE</p>
         <h1>UPGRADE YOUR<br><span>ADVENTURE.</span></h1>
         <p class="hero-copy">Support MortalShade Network and unlock more ways to play. Choose your server and explore its store.</p>
-        <a class="primary-button" href="#store">EXPLORE THE STORE <span aria-hidden="true">→</span></a>
-        <p class="hero-note">Purchases will be delivered to the selected game server once checkout is enabled.</p>
+        <a class="primary-button" href="./store.html#collection">EXPLORE THE STORE <span aria-hidden="true">→</span></a>
+        <p class="hero-note">Choose your game mode to discover ranks and items made for your adventure.</p>
       </div>
       <div class="hero-art" aria-hidden="true">
         <div class="orb orb-one"></div><div class="orb orb-two"></div>
@@ -46,36 +43,6 @@
         <div class="art-caption">MORTALSHADE<br>NETWORK</div>
       </div>
     </section>
-
-    <section class="store-section" id="store">
-      <div class="section-heading">
-        <div><p class="eyebrow">CHOOSE YOUR DESTINATION</p><h2>THE <span>STORE</span></h2></div>
-        <p class="section-description">Select a server to see the items made for that game mode.</p>
-      </div>
-      <section class="coin-calculator" aria-labelledby="coin-calculator-title">
-        <div>
-          <p class="eyebrow">COIN CONVERTER</p>
-          <h3 id="coin-calculator-title">MortalShade Coins to INR</h3>
-          <p>Conversion rate: 5 MortalShade Coins = ₹1</p>
-        </div>
-        <label for="coin-amount">Enter Coins</label>
-        <input id="coin-amount" type="number" min="0" step="1" value="500" inputmode="numeric">
-        <div class="calculator-result"><span>Estimated value</span><strong id="inr-output">₹100.00</strong></div>
-      </section>
-      <div class="server-tabs" id="server-tabs" role="group" aria-label="Choose a server">
-        <button class="server-tab active" data-server="all" type="button">All servers</button>
-        <button class="server-tab" data-server="lifesteal" type="button">LifeSteal</button>
-        <button class="server-tab" data-server="survival" type="button">Survival</button>
-        <button class="server-tab" data-server="bedwars" type="button">BedWars</button>
-        <button class="server-tab" data-server="pvp" type="button">PvP / Mini-Games</button>
-      </div>
-      <div class="store-toolbar">
-        <span id="result-label">All available products</span>
-        <span class="secure-note"><span aria-hidden="true">◆</span> Secure checkout coming soon</span>
-      </div>
-      <div class="product-grid" id="product-grid" aria-live="polite"></div>
-    </section>
-
     <section class="info-section" id="how-it-works">
       <p class="eyebrow">SIMPLE. CLEAR. RELIABLE.</p>
       <h2>HOW IT <span>WORKS</span></h2>
@@ -87,13 +54,11 @@
       <p class="notice">Checkout and in-game delivery are not active yet. This site is currently a storefront preview.</p>
     </section>
   </main>
-
   <footer id="support">
-    <a class="brand footer-brand" href="#"><span class="brand-mark">M</span><span>MORTAL<span class="brand-accent">SHADE</span><small>NETWORK STORE</small></span></a>
+    <a class="brand footer-brand" href="./index.html"><span class="brand-mark">M</span><span>MORTAL<span class="brand-accent">SHADE</span><small>NETWORK STORE</small></span></a>
     <p>Need help? Contact the MortalShade Network staff through the server's official support channels.</p>
     <span class="copyright">© <span id="year"></span> MortalShade Network. All rights reserved.</span>
   </footer>
-
   <dialog id="cart-dialog" class="cart-dialog">
     <div class="dialog-heading"><h2>Your cart</h2><button id="close-cart" class="icon-button" type="button" aria-label="Close cart">×</button></div>
     <div id="cart-items" class="cart-items"></div>
