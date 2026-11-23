@@ -111,3 +111,8 @@ footer a:hover{color:#d4b8ff}
 .checkout-item{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid #302742;color:#d8d0e6;font-size:12px}
 .checkout-empty{color:#aaa3b7;font-size:13px;line-height:1.7}
 @media(max-width:700px){.checkout-grid{grid-template-columns:1fr}.checkout-main{padding:34px 16px 60px}}
+
+
+/* Discord community button in the main navigation */
+.discord-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-left:auto;margin-right:12px;padding:11px 15px;border:1px solid #6650a4;border-radius:9px;background:linear-gradient(105deg,#493078,#30204f);color:#fff;font-size:10px;font-weight:800;letter-spacing:.08em;white-space:nowrap;box-shadow:0 5px 20px #7650c522;transition:transform .18s,filter .18s}.discord-button:hover{transform:translateY(-2px);filter:brightness(1.2)}.discord-button span{color:#c7a8ff;font-size:13px}
+@media(max-width:560px){.discord-button{margin-left:auto;margin-right:8px;padding:9px 10px;font-size:9px}.cart-button{padding:9px 10px;font-size:11px}}
