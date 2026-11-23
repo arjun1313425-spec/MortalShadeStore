@@ -33,15 +33,21 @@
     const light=document.getElementById("server-status-light");
     if(!statusText || !countText) return;
     try {
-      const response=await fetch("https://api.mcstatus.io/v2/status/bedrock/"+SERVER_HOST+":"+BEDROCK_PORT,{cache:"no-store"});
-      if(!response.ok) throw new Error("Status unavailable");
-      const data=await response.json();
-      if(data.online) {
+      const urls=[
+        "https://api.mcstatus.io/v2/status/java/"+SERVER_HOST,
+        "https://api.mcstatus.io/v2/status/bedrock/"+SERVER_HOST+":"+BEDROCK_PORT
+      ];
+      const results=await Promise.allSettled(urls.map(url=>fetch(url,{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error("Status unavailable");return r.json();})));
+      const java=results[0].status==="fulfilled"?results[0].value:null;
+      const bedrock=results[1].status==="fulfilled"?results[1].value:null;
+      // Prefer Java's proxy ping for the network-wide count; use Bedrock as fallback.
+      const data=java?.online?java:(bedrock?.online?bedrock:null);
+      if(data?.online) {
         statusText.textContent="SERVER ONLINE";
-        countText.textContent=(data.players?.online ?? 0)+" / "+(data.players?.max ?? "?")+" players online";
+        countText.textContent=(data.players?.online ?? 0)+" / "+(data.players?.max ?? "?")+" players online · "+(java?.online?"Java network":"Bedrock");
         if(light) light.classList.add("online");
       } else {
-        statusText.textContent="SERVER OFFLINE"; countText.textContent="No response from the Bedrock endpoint";
+        statusText.textContent="SERVER OFFLINE"; countText.textContent="No response from Java or Bedrock status checks";
         if(light) light.classList.remove("online");
       }
     } catch (_) { statusText.textContent="STATUS UNAVAILABLE"; countText.textContent="Live player count could not be loaded"; if(light) light.classList.remove("online"); }
@@ -69,6 +75,7 @@
       line.append(title, price, remove);
       cartItems.append(line);
     });
+    const checkoutLink=document.createElement("a"); checkoutLink.className="primary-button"; checkoutLink.href="./checkout.html"; checkoutLink.textContent="CONTINUE TO CHECKOUT →"; checkoutLink.style.marginTop="18px"; cartItems.append(checkoutLink);
   }
   function flyToCart(card) {
     if (!cartButton || !card) return;
