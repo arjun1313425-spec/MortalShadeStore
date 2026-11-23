@@ -1,14 +1,13 @@
-// Add confirmed products here after the server packages and prices are decided.
-// Do not put payment secrets or private server commands in this file.
+// Product names and displayed prices supplied from the MortalShade reference store.
+// Coin conversion: 5 MortalShade Coins = INR 1.
 window.MORTALSHADE_PRODUCTS = [
-  // Example format:
-  // {
-  //   id: "lifesteal-example-rank",
-  //   name: "Example LifeSteal Rank",
-  //   description: "Replace this with the real rank description.",
-  //   server: "lifesteal", // lifesteal | survival | bedwars | pvp
-  //   category: "Rank",
-  //   price: 0,
-  //   currency: "NPR"
-  // }
+  { id: "lifesteal-knight", name: "Knight Rank", server: "lifesteal", category: "Rank", coins: 279, price: 55, currency: "INR", duration: "28 days", description: "Begin your LifeSteal journey with exclusive perks. Includes the MortalShade [Knight] prefix, starter kit and homes." },
+  { id: "lifesteal-champion", name: "Champion Rank", server: "lifesteal", category: "Rank", coins: 499, price: 99, currency: "INR", duration: "28 days", description: "Become a champion with extra commands and perks. Includes the MortalShade [Champion] prefix, extra /sethome and /workbench." },
+  { id: "lifesteal-arcane", name: "Arcane Rank", server: "lifesteal", category: "Rank", coins: 749, price: 149, currency: "INR", duration: "28 days", description: "Unlock magical utility perks and exclusive privileges. Includes the MortalShade [Arcane] prefix, portable /enderchest and /anvil." },
+  { id: "lifesteal-dragon-plus", name: "Dragon+ Rank", server: "lifesteal", category: "Rank", coins: 999, price: 199, currency: "INR", duration: "28 days", description: "Dominate LifeSteal with powerful Dragon privileges. Includes the Dragon End [Dragon+] prefix, spawn, /fly, /feed and Dragon+ kit." },
+  { id: "lifesteal-mortal-plus-plus", name: "Mortal++ Rank", server: "lifesteal", category: "Rank", coins: 1249, price: 249, currency: "INR", duration: "28 days", description: "Reach the ultimate level of MortalShade power. Includes the Royal [Mortal++] prefix, unlimited homes, /heal and priority queue." },
+  { id: "survival-champion", name: "Champion Rank", server: "survival", category: "Rank", coins: 245, price: 49, currency: "INR", description: "Become a Survival champion with exclusive perks. Includes the MortalShade [Champion] prefix, 5 /sethome locations and /workbench." },
+  { id: "survival-master", name: "Master Rank", server: "survival", category: "Rank", coins: 495, price: 99, currency: "INR", description: "Unlock advanced Survival privileges and utilities. Includes the MortalShade [Master] prefix, 10 /sethome locations and /enderchest." },
+  { id: "survival-immortal", name: "Immortal Rank", server: "survival", category: "Rank", coins: 745, price: 149, currency: "INR", description: "Rise above everyone with exclusive Immortal privileges. The reference listing mentions the LifeSteal Nightmare Crate, custom weapons and extra heart items; full Survival benefits need confirmation." },
+  { id: "spidey-special", name: "Spidey Rank", server: "lifesteal", category: "Special offer", coins: 3500, price: 700, currency: "INR", duration: "28 days", specialOffer: "Claim this rank free through Discord when you buy 10 Spider-Man keys.", description: "Exclusive Spider-Verse experience. Special promotion: buy 10 Spider-Man keys and claim the rank free through Discord." }
 ];
