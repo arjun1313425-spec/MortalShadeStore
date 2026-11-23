@@ -52,6 +52,16 @@
         <div><p class="eyebrow">CHOOSE YOUR DESTINATION</p><h2>THE <span>STORE</span></h2></div>
         <p class="section-description">Select a server to see the items made for that game mode.</p>
       </div>
+      <section class="coin-calculator" aria-labelledby="coin-calculator-title">
+        <div>
+          <p class="eyebrow">COIN CONVERTER</p>
+          <h3 id="coin-calculator-title">MortalShade Coins to INR</h3>
+          <p>Conversion rate: 5 MortalShade Coins = ₹1</p>
+        </div>
+        <label for="coin-amount">Enter Coins</label>
+        <input id="coin-amount" type="number" min="0" step="1" value="500" inputmode="numeric">
+        <div class="calculator-result"><span>Estimated value</span><strong id="inr-output">₹100.00</strong></div>
+      </section>
       <div class="server-tabs" id="server-tabs" role="group" aria-label="Choose a server">
         <button class="server-tab active" data-server="all" type="button">All servers</button>
         <button class="server-tab" data-server="lifesteal" type="button">LifeSteal</button>
