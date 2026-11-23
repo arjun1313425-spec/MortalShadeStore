@@ -4,12 +4,12 @@ Complete these checks before writing production delivery commands.
 
 ## Minecraft servers
 
-Run the following on each Paper backend (LifeSteal, Survival, BedWars, and PvP / Mini-Games):
+Run these checks on each Paper backend: LifeSteal, Survival, BedWars, and PvP / Mini-Games.
 
 - [ ] Run `lp info` and record the LuckPerms version and storage information.
 - [ ] Open `plugins/LuckPerms/config.yml` and record `server:` and `storage-method:`.
 - [ ] Record the exact LuckPerms group names used for store ranks.
-- [ ] Record whether the four servers share LuckPerms storage.
+- [ ] Confirm whether the four servers share LuckPerms storage.
 - [ ] Check the ExcellentCrates version (console: `version ExcellentCrates`, or inspect the plugin JAR filename).
 - [ ] Confirm the exact crate/key give command from the installed plugin's help.
 - [ ] Confirm Geyser/Floodgate setup and how Bedrock player UUIDs are represented.
