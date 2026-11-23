@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090812">
+  <meta name="description" content="Browse MortalShade LifeSteal and Survival ranks and keys.">
+  <title>Browse Products | MortalShade Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./products.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html" aria-label="MortalShade Store home">
+      <span class="brand-mark">M</span>
+      <span>MORTAL<span class="brand-accent">SHADE</span><small>NETWORK STORE</small></span>
+    </a>
+    <nav aria-label="Main navigation"><a href="./index.html">Home</a><a href="#collection">Products</a></nav>
+    <button class="cart-button" id="cart-button" type="button" aria-label="Shopping cart">Cart <span id="cart-count">0</span></button>
+  </header>
+  <main>
+    <section class="store-page-hero">
+      <p class="eyebrow">MORTALSHADE NETWORK</p>
+      <h1>CHOOSE YOUR <span>UPGRADE.</span></h1>
+      <p>Pick a game mode and browse its ranks and keys.</p>
+    </section>
+    <section class="store-section" id="collection">
+      <div class="section-heading">
+        <div><p class="eyebrow">YOUR ADVENTURE STARTS HERE</p><h2>THE <span>COLLECTION</span></h2></div>
+        <p class="section-description">Products are grouped by game mode. Select a category below.</p>
+      </div>
+      <section class="coin-calculator" aria-labelledby="coin-calculator-title">
+        <div><p class="eyebrow">COIN CONVERTER</p><h3 id="coin-calculator-title">MortalShade Coins to INR</h3><p>Conversion rate: 5 MortalShade Coins = ₹1</p></div>
+        <label for="coin-amount">Enter Coins<input id="coin-amount" type="number" min="0" step="1" value="500" inputmode="numeric"></label>
+        <div class="calculator-result"><span>Estimated value</span><strong id="inr-output">₹100.00</strong></div>
+      </section>
+      <div class="category-tabs" id="category-tabs" role="group" aria-label="Choose product category">
+        <button class="server-tab active" data-category="lifesteal-ranks" type="button">LifeSteal Ranks</button>
+        <button class="server-tab" data-category="lifesteal-keys" type="button">LifeSteal Keys</button>
+        <button class="server-tab" data-category="survival-ranks" type="button">Survival Ranks</button>
+      </div>
+      <div class="store-toolbar"><span id="result-label">LifeSteal Ranks</span><span class="secure-note">◆ Secure checkout coming soon</span></div>
+      <div class="product-grid" id="product-grid" aria-live="polite"></div>
+    </section>
+  </main>
+  <footer><a class="brand footer-brand" href="./index.html"><span class="brand-mark">M</span><span>MORTAL<span class="brand-accent">SHADE</span><small>NETWORK STORE</small></span></a><p>Need help? Contact the MortalShade Network staff through the server's official support channels.</p><span class="copyright">© <span id="year"></span> MortalShade Network. All rights reserved.</span></footer>
+  <dialog id="cart-dialog" class="cart-dialog">
+    <div class="dialog-heading"><h2>Your cart</h2><button id="close-cart" class="icon-button" type="button" aria-label="Close cart">×</button></div>
+    <div id="cart-items" class="cart-items"></div>
+    <p class="cart-footnote">Checkout is not enabled yet. No payment will be taken.</p>
+  </dialog>
+</body>
+</html>
