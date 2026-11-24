@@ -24,12 +24,14 @@
   const inr = new Intl.NumberFormat("en-IN", {style:"currency",currency:"INR",maximumFractionDigits:2});
   const coinsFormat = new Intl.NumberFormat("en-IN");
   let activeCategory = "lifesteal-ranks";
+  // Keep the cart for this browsing tab only: reloads and page navigation
+  // preserve it, while a fresh visit in a new tab starts with an empty cart.
   let cart = [];
-  try { cart = JSON.parse(localStorage.getItem("mortalshade-cart") || "[]"); } catch (_) { cart = []; }
+  try { cart = JSON.parse(sessionStorage.getItem("mortalshade-cart") || "[]"); } catch (_) { cart = []; }
   if (!Array.isArray(cart)) cart = [];
 
   function saveCart() {
-    try { localStorage.setItem("mortalshade-cart", JSON.stringify(cart)); } catch (_) {}
+    try { sessionStorage.setItem("mortalshade-cart", JSON.stringify(cart)); } catch (_) {}
   }
   async function updateServerStatus() {
     const statusText=document.getElementById("server-status-text");
