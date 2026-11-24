@@ -235,3 +235,56 @@ footer a:hover{color:#d4b8ff}
 .product-card:has(.coin-pack-art) .product-actions{margin-top:auto}
 @media(max-width:700px){.game-showcase{padding:48px 20px}.game-showcase-heading{align-items:flex-start}.game-slides{grid-auto-columns:minmax(240px,82%)}.game-slide{min-height:245px}}
 @media(prefers-reduced-motion:reduce){.game-slides{scroll-behavior:auto}.game-slide-button{transition:none}}
+
+
+/* Storefront polish pass: clearer hierarchy, responsive navigation and cart totals */
+.product-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,245px),1fr));align-items:stretch;gap:18px}
+.category-tabs{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 16px}
+.category-tabs .server-tab{min-height:42px;padding:11px 15px;border-radius:9px}
+.product-card{height:100%;min-width:0;background:linear-gradient(150deg,#1b1528 0%,#12101d 68%,#100d18 100%);border-color:#392d4d;box-shadow:inset 0 1px #ffffff08,0 12px 30px #0002}
+.product-card:hover{border-color:#986bd0;box-shadow:0 18px 42px #0006,0 0 0 1px #986bd022}
+.product-card .product-art-image{flex:0 0 auto}
+.product-card .product-price{margin-top:14px}
+.product-actions .server-tab{min-height:42px;border-radius:8px}
+.product-actions .add-to-cart{background:linear-gradient(105deg,#8756d5,#a45bc9);border-color:#a477dc;color:#fff}
+.product-actions .add-to-cart:hover{filter:brightness(1.12)}
+.cart-total-line{display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding:15px 0;border-top:1px solid #493765;color:#c9c1d7;font-size:13px}
+.cart-total-line strong{color:#ead8ff;font-size:17px}
+.store-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #2c243a;color:#d8c9ec;font-size:12px}
+.secure-note{color:#9388a5;font-size:10px}
+.store-page-hero{position:relative;isolation:isolate}
+.store-page-hero:after{content:"";position:absolute;z-index:-1;right:8%;top:10%;width:230px;height:230px;border-radius:50%;background:#9b6cff18;filter:blur(65px);pointer-events:none}
+.site-header nav a:focus-visible,.discord-button:focus-visible,.cart-button:focus-visible,.server-tab:focus-visible,.primary-button:focus-visible{outline:2px solid #d6baff;outline-offset:3px}
+.checkout-summary{position:sticky;top:100px;height:max-content}
+.coupon-entry{margin-top:22px;padding-top:15px;border-top:1px solid #302742}
+.coupon-input-row{display:flex;gap:8px}
+.coupon-input-row input{min-width:0;flex:1;padding:12px;border:1px solid #493765;border-radius:8px;background:#0d0a16;color:#fff;font:500 13px Inter}
+.coupon-input-row button{flex:0 0 auto}
+#coupon-message{min-height:16px;font-size:11px;line-height:1.5}
+.coupon-valid{color:#79dfb5}.coupon-invalid{color:#f0a1a8}
+.discount-total{color:#83d8b2}
+@media(max-width:760px){
+ .category-tabs{display:flex;flex-wrap:nowrap;overflow-x:auto;padding:3px 2px 10px;scroll-snap-type:x proximity;scrollbar-width:thin}
+ .category-tabs .server-tab{flex:0 0 auto;scroll-snap-align:start}
+ .store-toolbar{align-items:flex-start;flex-direction:column}
+ .checkout-summary{position:static}
+}
+@media(max-width:560px){
+ .site-header{gap:8px}
+ .brand{gap:7px;font-size:10px;letter-spacing:.05em}
+ .brand small{font-size:7px}
+ .brand-mark{width:34px;height:34px}
+ .discord-button{gap:5px;padding:8px;font-size:8px}
+ .cart-button{padding:8px 9px}
+ .hero h1{font-size:clamp(40px,12vw,58px)}
+ .product-grid{grid-template-columns:1fr}
+ .product-card{padding:20px}
+ .game-showcase-heading{gap:10px}
+ .game-slide-controls{gap:5px}
+ .game-slide-button{width:36px;height:36px}
+ .checkout-card,.checkout-summary{padding:18px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
