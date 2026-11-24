@@ -209,3 +209,29 @@ footer a:hover{color:#d4b8ff}
 .back-to-top:hover{filter:brightness(1.2)}
 .back-to-top:focus-visible{outline:3px solid #d8bdff;outline-offset:3px}
 @media(max-width:480px){.back-to-top{right:15px;bottom:15px;width:44px;height:44px;border-radius:13px}.java-server-row>strong,.bedrock-server-row>strong{font-size:11px}}
+
+/* MortalShade network game-mode slider */
+.game-showcase{padding:62px max(8vw,24px);overflow:hidden;background:radial-gradient(ellipse at 80% 0,#291b40,transparent 55%),#100d19;border-top:1px solid #282039;border-bottom:1px solid #282039}
+.game-showcase-heading{display:flex;align-items:end;justify-content:space-between;gap:22px;margin-bottom:24px}
+.game-showcase-heading h2{margin:8px 0;font-size:clamp(28px,4vw,38px);letter-spacing:-.05em}
+.game-showcase-heading h2 span{color:#b58aff}
+.game-showcase-heading p:not(.eyebrow){max-width:520px;color:#a7a0b7;font-size:12px;line-height:1.7}
+.game-slide-controls{display:flex;gap:8px;flex:0 0 auto}
+.game-slide-button{display:grid;place-items:center;width:42px;height:42px;border:1px solid #60477f;border-radius:10px;background:#211831;color:#f2e8ff;font-size:21px;cursor:pointer;transition:background .2s,transform .2s}
+.game-slide-button:hover{background:#4a3068;transform:translateY(-2px)}
+.game-slides{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(250px,30%);gap:14px;overflow-x:auto;padding:4px 2px 16px;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#72519a #171120}
+.game-slide{position:relative;display:flex;flex-direction:column;min-height:260px;padding:23px;border:1px solid #49365f;border-radius:14px;overflow:hidden;scroll-snap-align:start;background:linear-gradient(145deg,#211832,#11101b);isolation:isolate}
+.game-slide:before{content:"";position:absolute;z-index:-1;width:180px;height:180px;right:-45px;top:25px;border-radius:50%;background:var(--game-glow,#8b5ce8);opacity:.17;filter:blur(45px)}
+.game-survival{--game-glow:#66c987}.game-lifesteal{--game-glow:#e84f77}.game-bedwars{--game-glow:#e6a64f}.game-pvp{--game-glow:#8b70ef}.game-minigames{--game-glow:#55c9d0}
+.game-slide-number{color:#a99bbd;font-size:9px;font-weight:800;letter-spacing:.15em}
+.game-slide-symbol{display:grid;place-items:center;width:58px;height:58px;margin:22px 0 15px;border:1px solid var(--game-glow);border-radius:16px;background:#ffffff0b;color:var(--game-glow);font-size:30px;text-shadow:0 0 18px var(--game-glow)}
+.game-slide h3{margin:0 0 8px;font-size:20px;letter-spacing:.04em}
+.game-slide p{max-width:280px;margin:0 0 20px;color:#b3aabd;font-size:11px;line-height:1.75}
+.game-slide-tag{margin-top:auto;color:var(--game-glow);font-size:8px;font-weight:800;letter-spacing:.14em}
+.game-slide-hint{display:flex;justify-content:space-between;gap:12px;margin-top:8px;color:#8d849d;font-size:8px;font-weight:700;letter-spacing:.12em}
+.game-slide-progress{color:#c5a6ee}
+.coin-pack-art{width:112px;height:112px;object-fit:contain;padding:6px;border:1px solid #60477f;border-radius:18px;background:radial-gradient(circle,#35204f,#151020 72%);filter:drop-shadow(0 8px 18px #9b6cff55);margin-bottom:18px}
+.product-card:has(.coin-pack-art){align-items:center;text-align:center}
+.product-card:has(.coin-pack-art) .product-actions{margin-top:auto}
+@media(max-width:700px){.game-showcase{padding:48px 20px}.game-showcase-heading{align-items:flex-start}.game-slides{grid-auto-columns:minmax(240px,82%)}.game-slide{min-height:245px}}
+@media(prefers-reduced-motion:reduce){.game-slides{scroll-behavior:auto}.game-slide-button{transition:none}}
