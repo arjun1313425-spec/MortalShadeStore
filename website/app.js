@@ -20,19 +20,19 @@
     "lifesteal-ranks": "LifeSteal Ranks",
     "lifesteal-keys": "LifeSteal Keys",
     "survival-ranks": "Survival Ranks",
-    "coins": "MortalShade Coin Packs"
+    "coins": "MortalShade Coin Packs",
+    "special": "Special Offers"
   };
   const inr = new Intl.NumberFormat("en-IN", {style:"currency",currency:"INR",maximumFractionDigits:2});
   const coinsFormat = new Intl.NumberFormat("en-IN");
   let activeCategory = "lifesteal-ranks";
-  // Keep the cart for this browsing tab only: reloads and page navigation
-  // preserve it, while a fresh visit in a new tab starts with an empty cart.
+  // Use the same cart storage as checkout so items survive navigation and new tabs.
   let cart = [];
-  try { cart = JSON.parse(sessionStorage.getItem("mortalshade-cart") || "[]"); } catch (_) { cart = []; }
+  try { cart = JSON.parse(localStorage.getItem("mortalshade-cart") || "[]"); } catch (_) { cart = []; }
   if (!Array.isArray(cart)) cart = [];
 
   function saveCart() {
-    try { sessionStorage.setItem("mortalshade-cart", JSON.stringify(cart)); } catch (_) {}
+    try { localStorage.setItem("mortalshade-cart", JSON.stringify(cart)); } catch (_) {}
   }
   async function updateServerStatus() {
     const statusText=document.getElementById("server-status-text");
@@ -73,7 +73,8 @@
       const line = document.createElement("div");
       line.className = "cart-line";
       const title = document.createElement("span");
-      title.textContent = item.name + " — " + (item.server === "lifesteal" ? "LifeSteal" : "Survival");
+      const serverNames = {lifesteal:"LifeSteal",survival:"Survival",bedwars:"BedWars",pvp:"PvP / Mini-Games",network:"Network-wide"};
+      title.textContent = item.name + " — " + (serverNames[item.server] || "Server to confirm");
       const price = document.createElement("strong");
       price.textContent = inr.format(item.price);
       const remove = document.createElement("button");
@@ -82,6 +83,11 @@
       line.append(title, price, remove);
       cartItems.append(line);
     });
+    const total = cart.reduce((sum,item)=>sum+(Number(item.price)||0),0);
+    const totalLine=document.createElement("div"); totalLine.className="cart-total-line";
+    const totalLabel=document.createElement("span"); totalLabel.textContent="Cart total";
+    const totalValue=document.createElement("strong"); totalValue.textContent=inr.format(total);
+    totalLine.append(totalLabel,totalValue); cartItems.append(totalLine);
     const checkoutLink=document.createElement("a"); checkoutLink.className="primary-button"; checkoutLink.href="./checkout.html"; checkoutLink.textContent="CONTINUE TO CHECKOUT →"; checkoutLink.style.marginTop="18px"; cartItems.append(checkoutLink);
   }
   function flyToCart(card) {
@@ -109,7 +115,8 @@
     const art = document.createElement("img");
     art.className = "detail-rank-art";
     art.src = product.art || ("./assets/ranks/" + product.id + ".svg");
-    art.alt = product.name + " emblem";
+    art.alt = product.name + " artwork";
+    art.addEventListener("error", () => { art.hidden = true; }, {once:true});
     const title = document.createElement("h2"); title.textContent = product.name;
     const server = document.createElement("p"); server.className = "detail-server"; server.textContent = product.server === "network" ? "MortalShade Network · Coin Pack" : (product.server === "lifesteal" ? "LifeSteal" : "Survival") + " server";
     const price = document.createElement("p"); price.className = "detail-price"; price.textContent = inr.format(product.price) + " · " + coinsFormat.format(product.coins) + " MortalShade Coins";
@@ -125,6 +132,7 @@
       if (activeCategory === "lifesteal-ranks") return p.server === "lifesteal" && p.category === "Rank" && p.id !== "spidey-special";
       if (activeCategory === "survival-ranks") return p.server === "survival" && p.category === "Rank";
       if (activeCategory === "coins") return p.category === "Coins";
+      if (activeCategory === "special") return p.category === "Special offer";
       return p.server === "lifesteal" && p.category === "Key";
     });
     if (resultLabel) resultLabel.textContent = labels[activeCategory] + " · " + visible.length + " item" + (visible.length===1?"":"s");
@@ -135,7 +143,9 @@
       const heading = "Items coming soon";
       const message = activeCategory === "coins"
         ? "Coin packs are being prepared. Pack amounts and prices will appear here soon."
-        : "We have not added products to this category yet. Check back soon!";
+        : activeCategory === "special"
+          ? "There are no active special offers listed right now. Check Discord for announcements."
+          : "We have not added products to this category yet. Check back soon!";
       const symbol = document.createElement("div"); symbol.className="empty-icon"; symbol.textContent="✦";
       const title = document.createElement("h3"); title.textContent=heading;
       const copy = document.createElement("p"); copy.textContent=message;
@@ -157,7 +167,7 @@
       const add = document.createElement("button");
       add.className="server-tab active add-to-cart"; add.type="button"; add.textContent="Add to cart";
       add.addEventListener("click", () => {
-        cart.push({id:product.id,name:product.name,server:product.server,price:product.price});
+        cart.push({id:product.id,name:product.name,server:product.server,price:product.price,coins:product.coins});
         saveCart(); updateCart(); flyToCart(card);
       });
       actions.append(details, add); card.append(actions); grid.append(card);
