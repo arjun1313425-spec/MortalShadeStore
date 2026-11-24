@@ -346,3 +346,9 @@ footer a:hover{color:#d4b8ff}
 .footer-server{color:#91879f;letter-spacing:.02em}
 .footer-bottom a{color:#b99aff;text-decoration:none}
 .footer-bottom a:hover{text-decoration:underline}
+
+/* Shared compact branded footer */
+.site-footer .footer-main{justify-content:center;margin:0 auto 8px;padding:0}
+.site-footer .footer-brand .brand-mark{width:32px;height:32px;border-radius:9px;font-size:16px}
+.site-footer .footer-brand small{font-size:8px;letter-spacing:.16em}
+.site-footer .footer-bottom{justify-content:center;padding:0;border:0;text-align:center}
