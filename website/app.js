@@ -143,7 +143,7 @@
       const name = document.createElement("h3"); name.textContent = product.name;
       const desc = document.createElement("p"); desc.textContent = product.description || "";
       const price = document.createElement("p"); price.className = "product-price"; price.textContent = coinsFormat.format(product.coins)+" Coins · "+inr.format(product.price);
-      card.append(favorite,art,eyebrow,name,desc,price);
+      card.append(art,eyebrow,name,desc,price);
       if (product.duration) { const duration=document.createElement("p"); duration.className="product-meta"; duration.textContent="Duration: "+product.duration; card.append(duration); }
       const actions = document.createElement("div"); actions.className = "product-actions";
       const details = document.createElement("button"); details.type = "button"; details.className = "server-tab details-button"; details.textContent = "View details";
