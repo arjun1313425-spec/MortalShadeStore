@@ -192,6 +192,13 @@
   const close=document.getElementById("close-cart");
   if (close && cartDialog) close.addEventListener("click",()=>cartDialog.close());
   if (cartDialog) cartDialog.addEventListener("click",event=>{if(event.target===cartDialog)cartDialog.close();});
+  const backToTop=document.getElementById("back-to-top");
+  if(backToTop){
+    const syncBackToTop=()=>backToTop.classList.toggle("is-visible",window.scrollY>320);
+    window.addEventListener("scroll",syncBackToTop,{passive:true});
+    syncBackToTop();
+    backToTop.addEventListener("click",()=>window.scrollTo({top:0,behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}));
+  }
   const year=document.getElementById("year");
   if(year) year.textContent=String(new Date().getFullYear());
   updateCalculator(); updateCart(); renderProducts();
