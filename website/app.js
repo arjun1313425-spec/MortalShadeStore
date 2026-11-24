@@ -111,7 +111,7 @@
     art.src = product.art || ("./assets/ranks/" + product.id + ".svg");
     art.alt = product.name + " emblem";
     const title = document.createElement("h2"); title.textContent = product.name;
-    const server = document.createElement("p"); server.className = "detail-server"; server.textContent = (product.server === "lifesteal" ? "LifeSteal" : "Survival") + " server";
+    const server = document.createElement("p"); server.className = "detail-server"; server.textContent = product.server === "network" ? "MortalShade Network · Coin Pack" : (product.server === "lifesteal" ? "LifeSteal" : "Survival") + " server";
     const price = document.createElement("p"); price.className = "detail-price"; price.textContent = inr.format(product.price) + " · " + coinsFormat.format(product.coins) + " MortalShade Coins";
     const description = document.createElement("p"); description.className = "detail-description"; description.textContent = product.description || "Details coming soon.";
     detailsBody.append(art, title, server, price, description);
@@ -144,7 +144,7 @@
     visible.forEach(product => {
       const card = document.createElement("article");
       card.className = "step-card product-card";
-      const art = document.createElement("img"); art.className = "product-art-image"; art.src = "./assets/ranks/" + product.id + ".svg"; art.alt = product.name + " emblem";
+      const art = document.createElement("img"); art.className = "product-art-image" + (product.category === "Coins" ? " coin-pack-art" : ""); art.src = product.art || ("./assets/ranks/" + product.id + ".svg"); art.alt = product.name + (product.category === "Coins" ? " coin pack artwork" : " emblem"); art.loading = "lazy"; art.addEventListener("error", () => { art.hidden = true; }, {once:true});
       const eyebrow = document.createElement("p"); eyebrow.className = "eyebrow"; eyebrow.textContent = labels[activeCategory];
       const name = document.createElement("h3"); name.textContent = product.name;
       const desc = document.createElement("p"); desc.textContent = product.description || "";
