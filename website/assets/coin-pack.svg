@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="MortalShade coin">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8df9a"/><stop offset=".48" stop-color="#d99a37"/><stop offset="1" stop-color="#8b4b19"/></linearGradient></defs>
+<circle cx="128" cy="128" r="112" fill="#241735" stroke="#8d62c7" stroke-width="7"/>
+<circle cx="128" cy="128" r="88" fill="url(#g)" stroke="#ffe6a8" stroke-width="8"/>
+<circle cx="128" cy="128" r="69" fill="none" stroke="#8c4e1d" stroke-width="5"/>
+<path d="M151 82c-8-8-19-12-32-12-25 0-42 16-42 38 0 19 12 29 38 37 19 6 26 11 26 22 0 12-10 20-25 20-15 0-28-7-38-19l-18 19c12 15 29 24 49 26v18h24v-19c27-5 44-22 44-47 0-22-13-34-41-43-18-6-24-10-24-19 0-8 7-14 18-14 10 0 19 4 27 12z" fill="#542d16"/>
+<path d="M128 34v17M128 205v17M34 128h17M205 128h17" stroke="#ffe6a8" stroke-width="5" stroke-linecap="round"/>
+</svg>
