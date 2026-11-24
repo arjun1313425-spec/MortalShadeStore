@@ -170,3 +170,16 @@ footer a:hover{color:#d4b8ff}
 .store-support-button .support-arrow{margin-left:auto;color:#d7c2ff}
 @media(max-width:760px){.store-server-block{grid-template-columns:1fr 1fr}.store-support-button{grid-column:1/-1;justify-content:flex-start}}
 @media(max-width:480px){.store-server-block{grid-template-columns:1fr;padding:9px}.store-support-button{grid-column:auto}.store-server-row{padding:11px}.store-server-row>strong{font-size:11px}}
+
+
+/* Keep the Discord coupon banner content inside its container */
+.discord-coupon-note{box-sizing:border-box;width:100%;min-width:0;max-width:100%;overflow:hidden}
+.discord-coupon-note>div{flex:1 1 0;min-width:0;overflow-wrap:anywhere}
+.discord-coupon-note strong{display:block;max-width:100%;overflow-wrap:anywhere;word-break:normal;letter-spacing:.1em}
+.discord-coupon-note p{max-width:100%;overflow-wrap:anywhere}
+.discord-coupon-note a{max-width:100%;box-sizing:border-box;text-align:center}
+@media(max-width:560px){
+  .discord-coupon-note{gap:11px;padding:14px;flex-wrap:wrap}
+  .discord-coupon-note>div{flex:1 1 calc(100% - 58px);min-width:0}
+  .discord-coupon-note a{flex:0 1 auto;margin:4px 0 0 53px;white-space:normal;padding:10px 14px}
+}
