@@ -19,7 +19,8 @@
   const labels = {
     "lifesteal-ranks": "LifeSteal Ranks",
     "lifesteal-keys": "LifeSteal Keys",
-    "survival-ranks": "Survival Ranks"
+    "survival-ranks": "Survival Ranks",
+    "coins": "MortalShade Coin Packs"
   };
   const inr = new Intl.NumberFormat("en-IN", {style:"currency",currency:"INR",maximumFractionDigits:2});
   const coinsFormat = new Intl.NumberFormat("en-IN");
@@ -123,6 +124,7 @@
     let visible = products.filter(p => {
       if (activeCategory === "lifesteal-ranks") return p.server === "lifesteal" && p.category === "Rank" && p.id !== "spidey-special";
       if (activeCategory === "survival-ranks") return p.server === "survival" && p.category === "Rank";
+      if (activeCategory === "coins") return p.category === "Coins";
       return p.server === "lifesteal" && p.category === "Key";
     });
     if (resultLabel) resultLabel.textContent = labels[activeCategory] + " · " + visible.length + " item" + (visible.length===1?"":"s");
@@ -131,7 +133,9 @@
       const empty = document.createElement("div");
       empty.className = "empty-state";
       const heading = "Items coming soon";
-      const message = "We have not added products to this category yet. Check back soon!";
+      const message = activeCategory === "coins"
+        ? "Coin packs are being prepared. Pack amounts and prices will appear here soon."
+        : "We have not added products to this category yet. Check back soon!";
       const symbol = document.createElement("div"); symbol.className="empty-icon"; symbol.textContent="✦";
       const title = document.createElement("h3"); title.textContent=heading;
       const copy = document.createElement("p"); copy.textContent=message;
