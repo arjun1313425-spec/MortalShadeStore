@@ -47,15 +47,13 @@
       </div>
     </section>
 
-      <div class="category-picker" id="category-tabs">
-        <select class="category-select" id="category-select" aria-label="Choose product category">
-          <option value="lifesteal-ranks">LifeSteal Ranks</option>
-          <option value="lifesteal-keys">LifeSteal Keys</option>
-          <option value="survival-ranks">Survival Ranks</option>
-          <option value="special">Special Offers</option>
-          <option value="coins">MortalShade Coins</option>
-        </select>
-      </div>
+      <nav class="category-picker" id="category-tabs" aria-label="Product categories">
+        <button class="category-option active" type="button" data-category="lifesteal-ranks" aria-pressed="true">LifeSteal Ranks</button>
+        <button class="category-option" type="button" data-category="lifesteal-keys" aria-pressed="false">LifeSteal Keys</button>
+        <button class="category-option" type="button" data-category="survival-ranks" aria-pressed="false">Survival Ranks</button>
+        <button class="category-option" type="button" data-category="special" aria-pressed="false">Special Offers</button>
+        <button class="category-option" type="button" data-category="coins" aria-pressed="false">MortalShade Coins</button>
+      </nav>
       <div class="store-toolbar"><span id="result-label">LifeSteal Ranks</span><span class="secure-note">◆ Secure checkout coming soon</span></div>
       <div class="product-grid" id="product-grid" aria-live="polite"></div>
     </section>
