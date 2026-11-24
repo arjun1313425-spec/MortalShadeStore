@@ -108,7 +108,7 @@
     detailsBody.replaceChildren();
     const art = document.createElement("img");
     art.className = "detail-rank-art";
-    art.src = "./assets/ranks/" + product.id + ".svg";
+    art.src = product.art || ("./assets/ranks/" + product.id + ".svg");
     art.alt = product.name + " emblem";
     const title = document.createElement("h2"); title.textContent = product.name;
     const server = document.createElement("p"); server.className = "detail-server"; server.textContent = (product.server === "lifesteal" ? "LifeSteal" : "Survival") + " server";
