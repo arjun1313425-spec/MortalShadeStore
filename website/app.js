@@ -173,12 +173,10 @@
       actions.append(details, add); card.append(actions); grid.append(card);
     });
   }
-  if (categoryTabs) {
-    categoryTabs.addEventListener("click", event => {
-      const button=event.target.closest("button[data-category]");
-      if (!button) return;
-      activeCategory=button.dataset.category;
-      categoryTabs.querySelectorAll("button").forEach(tab=>tab.classList.toggle("active",tab===button));
+  const categorySelect = document.getElementById("category-select");
+  if (categorySelect) {
+    categorySelect.addEventListener("change", () => {
+      activeCategory = categorySelect.value;
       renderProducts();
     });
   }
