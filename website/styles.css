@@ -144,3 +144,29 @@ footer a:hover{color:#d4b8ff}
 .detail-offer{padding:12px;border:1px solid #79572e;border-radius:8px;background:#2b2115;color:#f4d49a;font-size:12px;line-height:1.6}
 .detail-meta{margin:0 0 16px}
 @media(max-width:700px){.discord-coupon-note{align-items:flex-start;flex-wrap:wrap}.discord-coupon-note a{width:100%;margin:4px 0 0 57px}.product-actions{grid-template-columns:1fr}.product-card{min-height:0}.product-art-image{width:92px;height:92px}}
+
+
+/* Store hero: dedicated server connection and support panel */
+.store-server-block{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;max-width:900px;margin-top:24px;padding:12px;border:1px solid #493765;border-radius:14px;background:linear-gradient(125deg,#1b1429,#100e19 78%);box-shadow:0 16px 42px #0004}
+.store-server-row{position:relative;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:7px 10px;min-width:0;padding:12px 13px;border:1px solid #332943;border-radius:10px;background:#100d19}
+.store-server-label{grid-column:1/-1;color:#a995c9;font-size:9px;font-weight:800;letter-spacing:.13em}
+.store-server-row>strong{min-width:0;overflow-wrap:anywhere;color:#f3eaff;font-size:12px}
+.store-server-row>small{grid-column:2;color:#b4a5cd;font-size:9px;letter-spacing:.08em}
+.store-copy-ip{padding:7px 9px;border:1px solid #654b88;border-radius:7px;background:#281b3b;color:#dfcaff;font:800 9px Inter;letter-spacing:.08em;cursor:pointer}
+.store-copy-ip:hover{background:#49306b}
+.bedrock-server-row{grid-template-columns:30px 1fr auto}
+.bedrock-icon{grid-row:1/3;grid-column:1;width:28px;height:28px}
+.bedrock-icon svg{display:block;width:100%;height:100%;filter:drop-shadow(0 3px 6px #70c66a44)}
+.bedrock-server-row .store-server-label{grid-column:2/-1}
+.bedrock-server-row>strong{grid-column:2;grid-row:2}
+.bedrock-server-row>small{grid-column:2;grid-row:3}
+.bedrock-server-row .store-copy-ip{grid-column:3;grid-row:2/4}
+.store-support-button{display:flex;align-items:center;justify-content:center;gap:11px;min-width:170px;padding:14px;border:1px solid #6650a4;border-radius:10px;background:linear-gradient(145deg,#493078,#291d43);color:#fff;transition:transform .18s,filter .18s}
+.store-support-button:hover{transform:translateY(-2px);filter:brightness(1.15)}
+.store-support-button>span:first-child{font-size:23px;color:#d3b5ff}
+.store-support-button strong,.store-support-button small{display:block}
+.store-support-button strong{font-size:9px;letter-spacing:.1em}
+.store-support-button small{margin-top:5px;color:#c2b3d8;font-size:9px}
+.store-support-button .support-arrow{margin-left:auto;color:#d7c2ff}
+@media(max-width:760px){.store-server-block{grid-template-columns:1fr 1fr}.store-support-button{grid-column:1/-1;justify-content:flex-start}}
+@media(max-width:480px){.store-server-block{grid-template-columns:1fr;padding:9px}.store-support-button{grid-column:auto}.store-server-row{padding:11px}.store-server-row>strong{font-size:11px}}
