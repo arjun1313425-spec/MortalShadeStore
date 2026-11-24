@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
   <script src="./products.js" defer></script>
+  <script src="./coupons.js" defer></script>
   <script src="./app.js" defer></script>
 </head>
 <body>
@@ -44,12 +45,13 @@
         <button class="server-tab" data-category="lifesteal-keys" type="button">LifeSteal Keys</button>
         <button class="server-tab" data-category="survival-ranks" type="button">Survival Ranks</button>
       </div>
-      <div class="store-tools" aria-label="Product search and filters"><label class="search-wrap"><span class="sr-only">Search products</span><input id="product-search" type="search" placeholder="Search ranks and perks..." autocomplete="off"></label><label class="sort-wrap"><span class="sr-only">Sort products</span><select id="product-sort"><option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="name">Name: A to Z</option></select></label><button class="favorites-toggle" id="favorites-toggle" type="button">♡ Favourites <span id="favorites-count">0</span></button></div>
+      <div class="discord-coupon-note"><span class="coupon-spark">✦</span><div><strong>DISCORD COUPON DROPS</strong><p>Join our Discord to catch limited-time discount codes. Apply your code at checkout.</p></div><a href="https://discord.gg/FRk5gZ32hZ" target="_blank" rel="noopener noreferrer">GET CODES ↗</a></div>
       <div class="store-toolbar"><span id="result-label">LifeSteal Ranks</span><span class="secure-note">◆ Secure checkout coming soon</span></div>
       <div class="product-grid" id="product-grid" aria-live="polite"></div>
     </section>
   </main>
   <footer><a class="brand footer-brand" href="./index.html"><span class="brand-mark">M</span><span>MORTAL<span class="brand-accent">SHADE</span><small>NETWORK STORE</small></span></a><p><a href="https://discord.gg/FRk5gZ32hZ" target="_blank" rel="noopener">Join our Discord community ↗</a></p><span class="copyright">© <span id="year"></span> MortalShade Network. All rights reserved.</span></footer>
+  <dialog id="product-details-dialog" class="product-details-dialog"><div class="dialog-heading"><span class="eyebrow">RANK INTEL</span><button class="icon-button" type="button" aria-label="Close details" id="close-product-details">×</button></div><div id="product-details-body" class="product-details-body"></div></dialog>
   <dialog id="cart-dialog" class="cart-dialog">
     <div class="dialog-heading"><h2>Your cart</h2><button id="close-cart" class="icon-button" type="button" aria-label="Close cart">×</button></div>
     <div id="cart-items" class="cart-items"></div>
