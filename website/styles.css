@@ -132,7 +132,7 @@ footer a:hover{color:#d4b8ff}
 .coupon-spark{display:grid;place-items:center;width:42px;height:42px;flex:0 0 42px;border-radius:12px;background:#392356;color:#e3c5ff;font-size:23px}
 .discord-coupon-note strong{font-size:11px;letter-spacing:.14em;color:#e6d6ff}
 .discord-coupon-note p{margin:5px 0 0;color:#aaa0ba;font-size:11px;line-height:1.6}
-.discord-coupon-note a{margin-left:auto;color:#d5b4ff;font-size:10px;font-weight:800;white-space:nowrap}
+.discord-coupon-note a{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;margin-left:auto;padding:12px 17px;border:1px solid #8060b2;border-radius:9px;background:linear-gradient(110deg,#6942a0,#49306f);color:#fff;font-size:10px;font-weight:800;letter-spacing:.08em;white-space:nowrap;box-shadow:0 6px 18px #8c5bd533;transition:transform .18s,filter .18s}.discord-coupon-note a:hover{transform:translateY(-2px);filter:brightness(1.15)}
 .product-details-dialog{width:min(500px,calc(100% - 28px));border:1px solid #65478c;border-radius:16px;background:linear-gradient(145deg,#1b1429,#100e19);color:#fff;padding:24px;box-shadow:0 24px 100px #000c}
 .product-details-dialog::backdrop{background:#05030adb;backdrop-filter:blur(5px)}
 .product-details-body{display:flex;flex-direction:column;align-items:center;text-align:center;padding:8px 10px 4px}
@@ -143,4 +143,4 @@ footer a:hover{color:#d4b8ff}
 .detail-description{color:#c1b8cf;font-size:13px;line-height:1.8}
 .detail-offer{padding:12px;border:1px solid #79572e;border-radius:8px;background:#2b2115;color:#f4d49a;font-size:12px;line-height:1.6}
 .detail-meta{margin:0 0 16px}
-@media(max-width:700px){.discord-coupon-note{align-items:flex-start;flex-wrap:wrap}.discord-coupon-note a{margin-left:57px}.product-actions{grid-template-columns:1fr}.product-card{min-height:0}.product-art-image{width:92px;height:92px}}
+@media(max-width:700px){.discord-coupon-note{align-items:flex-start;flex-wrap:wrap}.discord-coupon-note a{width:100%;margin:4px 0 0 57px}.product-actions{grid-template-columns:1fr}.product-card{min-height:0}.product-art-image{width:92px;height:92px}}
