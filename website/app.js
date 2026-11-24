@@ -9,10 +9,10 @@
   const cartItems = document.getElementById("cart-items");
   const coinInput = document.getElementById("coin-amount");
   const inrOutput = document.getElementById("inr-output");
-  const searchInput = document.getElementById("product-search");
-  const sortSelect = document.getElementById("product-sort");
-  const favoritesToggle = document.getElementById("favorites-toggle");
-  const favoritesCount = document.getElementById("favorites-count");
+  const detailsDialog = document.getElementById("product-details-dialog");
+  const detailsBody = document.getElementById("product-details-body");
+  const closeDetails = document.getElementById("close-product-details");
+  if (closeDetails && detailsDialog) closeDetails.addEventListener("click", () => detailsDialog.close());
   const COINS_PER_INR = 5;
   const SERVER_HOST = "play.mortalshade.fun";
   const BEDROCK_PORT = 19135;
@@ -24,10 +24,6 @@
   const inr = new Intl.NumberFormat("en-IN", {style:"currency",currency:"INR",maximumFractionDigits:2});
   const coinsFormat = new Intl.NumberFormat("en-IN");
   let activeCategory = "lifesteal-ranks";
-  let showFavoritesOnly = false;
-  let favoriteIds = [];
-  try { favoriteIds = JSON.parse(localStorage.getItem("mortalshade-favorites") || "[]"); } catch (_) { favoriteIds = []; }
-  if (!Array.isArray(favoriteIds)) favoriteIds = [];
   let cart = [];
   try { cart = JSON.parse(localStorage.getItem("mortalshade-cart") || "[]"); } catch (_) { cart = []; }
   if (!Array.isArray(cart)) cart = [];
@@ -104,10 +100,21 @@
     void cartButton.offsetWidth;
     cartButton.classList.add("cart-bump");
   }
-  function saveFavorites() {
-    try { localStorage.setItem("mortalshade-favorites", JSON.stringify(favoriteIds)); } catch (_) {}
-    if (favoritesCount) favoritesCount.textContent = String(favoriteIds.length);
-    if (favoritesToggle) favoritesToggle.classList.toggle("active", showFavoritesOnly);
+  function renderProductDetails(product) {
+    if (!detailsDialog || !detailsBody) return;
+    detailsBody.replaceChildren();
+    const art = document.createElement("img");
+    art.className = "detail-rank-art";
+    art.src = "./assets/ranks/" + product.id + ".svg";
+    art.alt = product.name + " emblem";
+    const title = document.createElement("h2"); title.textContent = product.name;
+    const server = document.createElement("p"); server.className = "detail-server"; server.textContent = (product.server === "lifesteal" ? "LifeSteal" : "Survival") + " server";
+    const price = document.createElement("p"); price.className = "detail-price"; price.textContent = inr.format(product.price) + " · " + coinsFormat.format(product.coins) + " MortalShade Coins";
+    const description = document.createElement("p"); description.className = "detail-description"; description.textContent = product.description || "Details coming soon.";
+    detailsBody.append(art, title, server, price, description);
+    if (product.duration) { const duration = document.createElement("p"); duration.className = "detail-meta"; duration.textContent = "Duration: " + product.duration; detailsBody.append(duration); }
+    if (product.specialOffer) { const offer = document.createElement("p"); offer.className = "detail-offer"; offer.textContent = product.specialOffer; detailsBody.append(offer); }
+    detailsDialog.showModal();
   }
   function renderProducts() {
     if (!grid) return;
@@ -116,20 +123,13 @@
       if (activeCategory === "survival-ranks") return p.server === "survival" && p.category === "Rank";
       return p.server === "lifesteal" && p.category === "Key";
     });
-    const query = (searchInput?.value || "").trim().toLowerCase();
-    if (query) visible = visible.filter(p => (p.name + " " + (p.description || "")).toLowerCase().includes(query));
-    if (showFavoritesOnly) visible = visible.filter(p => favoriteIds.includes(p.id));
-    const sort = sortSelect?.value || "featured";
-    if (sort === "price-low") visible.sort((a,b) => a.price-b.price);
-    if (sort === "price-high") visible.sort((a,b) => b.price-a.price);
-    if (sort === "name") visible.sort((a,b) => a.name.localeCompare(b.name));
     if (resultLabel) resultLabel.textContent = labels[activeCategory] + " · " + visible.length + " item" + (visible.length===1?"":"s");
     grid.replaceChildren();
     if (!visible.length) {
       const empty = document.createElement("div");
       empty.className = "empty-state";
-      const heading = showFavoritesOnly ? "No saved favourites here" : (query ? "No matching products" : "Items coming soon");
-      const message = showFavoritesOnly ? "Tap the heart on a product to save it here." : (query ? "Try another name or search term." : "We have not added products to this category yet. Check back soon!");
+      const heading = "Items coming soon";
+      const message = "We have not added products to this category yet. Check back soon!";
       const symbol = document.createElement("div"); symbol.className="empty-icon"; symbol.textContent="✦";
       const title = document.createElement("h3"); title.textContent=heading;
       const copy = document.createElement("p"); copy.textContent=message;
@@ -138,26 +138,23 @@
     visible.forEach(product => {
       const card = document.createElement("article");
       card.className = "step-card product-card";
-      const favorite = document.createElement("button");
-      favorite.type="button"; favorite.className="favorite-button"+(favoriteIds.includes(product.id)?" is-favorite":"");
-      favorite.setAttribute("aria-label", favoriteIds.includes(product.id)?"Remove from favourites":"Add to favourites");
-      favorite.setAttribute("aria-pressed",String(favoriteIds.includes(product.id)));
-      favorite.textContent=favoriteIds.includes(product.id)?"♥":"♡";
-      favorite.addEventListener("click",()=>{favoriteIds=favoriteIds.includes(product.id)?favoriteIds.filter(id=>id!==product.id):[...favoriteIds,product.id];saveFavorites();renderProducts();});
-      const art = document.createElement("div"); art.className = "product-art " + (product.category === "Key" ? "key-art" : "rank-art"); art.setAttribute("aria-hidden","true"); art.textContent = product.category === "Key" ? "🗝" : "♛";
+      const art = document.createElement("img"); art.className = "product-art-image"; art.src = "./assets/ranks/" + product.id + ".svg"; art.alt = product.name + " emblem";
       const eyebrow = document.createElement("p"); eyebrow.className = "eyebrow"; eyebrow.textContent = labels[activeCategory];
       const name = document.createElement("h3"); name.textContent = product.name;
       const desc = document.createElement("p"); desc.textContent = product.description || "";
       const price = document.createElement("p"); price.className = "product-price"; price.textContent = coinsFormat.format(product.coins)+" Coins · "+inr.format(product.price);
       card.append(favorite,art,eyebrow,name,desc,price);
       if (product.duration) { const duration=document.createElement("p"); duration.className="product-meta"; duration.textContent="Duration: "+product.duration; card.append(duration); }
+      const actions = document.createElement("div"); actions.className = "product-actions";
+      const details = document.createElement("button"); details.type = "button"; details.className = "server-tab details-button"; details.textContent = "View details";
+      details.addEventListener("click", () => renderProductDetails(product));
       const add = document.createElement("button");
       add.className="server-tab active add-to-cart"; add.type="button"; add.textContent="Add to cart";
       add.addEventListener("click", () => {
         cart.push({id:product.id,name:product.name,server:product.server,price:product.price});
         saveCart(); updateCart(); flyToCart(card);
       });
-      card.append(add); grid.append(card);
+      actions.append(details, add); card.append(actions); grid.append(card);
     });
   }
   if (categoryTabs) {
@@ -170,9 +167,6 @@
     });
   }
   if (coinInput) coinInput.addEventListener("input",updateCalculator);
-  if (searchInput) searchInput.addEventListener("input",renderProducts);
-  if (sortSelect) sortSelect.addEventListener("change",renderProducts);
-  if (favoritesToggle) favoritesToggle.addEventListener("click",()=>{showFavoritesOnly=!showFavoritesOnly;saveFavorites();renderProducts();});
   const copyIp=document.getElementById("copy-server-ip");
   if(copyIp) copyIp.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(SERVER_HOST);copyIp.classList.add("copied");copyIp.querySelector("small").textContent="IP COPIED!";window.setTimeout(()=>{copyIp.classList.remove("copied");copyIp.querySelector("small").textContent="BEDROCK PORT: 19135 · TAP TO COPY";},1800);}catch(_){copyIp.querySelector("small").textContent=SERVER_HOST+":"+BEDROCK_PORT;}});
   if (cartButton && cartDialog) cartButton.addEventListener("click",()=>cartDialog.showModal());
@@ -181,7 +175,7 @@
   if (cartDialog) cartDialog.addEventListener("click",event=>{if(event.target===cartDialog)cartDialog.close();});
   const year=document.getElementById("year");
   if(year) year.textContent=String(new Date().getFullYear());
-  saveFavorites(); updateCalculator(); updateCart(); renderProducts();
+  updateCalculator(); updateCart(); renderProducts();
   updateServerStatus();
   if(document.getElementById("server-status-text")) window.setInterval(updateServerStatus,120000);
 })();
