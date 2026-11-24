@@ -1,17 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-label="MORTAL++ rank emblem">
-<defs>
- <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff2c2"/><stop offset=".48" stop-color="#ffcf64"/><stop offset="1" stop-color="#251637"/></linearGradient>
- <radialGradient id="bg"><stop stop-color="#ffcf64" stop-opacity=".38"/><stop offset="1" stop-color="#100b1c" stop-opacity="0"/></radialGradient>
- <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-</defs>
-<circle cx="110" cy="105" r="98" fill="url(#bg)"/>
-<circle cx="110" cy="105" r="84" fill="#151020" stroke="#ffcf64" stroke-opacity=".55" stroke-width="2"/>
-<circle cx="110" cy="105" r="73" fill="none" stroke="#fff2c2" stroke-opacity=".3" stroke-width="1.5" stroke-dasharray="3 7"/>
-<path d="M49 139 60 72 91 99 110 48 129 99 160 72 171 139Z" fill="url(#metal)" stroke="#fff2c2" stroke-width="4" stroke-linejoin="round" filter="url(#glow)"/>
-<path d="M60 139h100l-9 18H69Z" fill="#261638" stroke="#ffcf64" stroke-width="3"/>
-<circle cx="60" cy="72" r="7" fill="#fff2c2"/><circle cx="110" cy="48" r="8" fill="#fff2c2"/><circle cx="160" cy="72" r="7" fill="#fff2c2"/>
-<path d="M86 112 110 89 134 112 110 135Z" fill="#100b1b" stroke="#fff2c2" stroke-width="2"/>
-<text x="110" y="122" fill="#fff2c2" font-family="Arial,sans-serif" font-size="28" font-weight="900" text-anchor="middle">M</text>
-<path d="M77 169h66" stroke="#ffcf64" stroke-width="2" stroke-linecap="round"/>
-<text x="110" y="188" fill="#fff2c2" font-family="Arial,sans-serif" font-size="11" font-weight="800" letter-spacing="2" text-anchor="middle">MORTAL++</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="MORTAL++ rank emblem">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#251438"/><stop offset="1" stop-color="#090711"/></linearGradient><linearGradient id="metal" x1="0" y1="0" x2="0.9" y2="1"><stop stop-color="#fff"/><stop offset=".32" stop-color="#f59e0b"/><stop offset="1" stop-color="#301447"/></linearGradient><radialGradient id="glow"><stop stop-color="#f59e0b" stop-opacity=".55"/><stop offset="1" stop-color="#f59e0b" stop-opacity="0"/></radialGradient><filter id="shadow"><feGaussianBlur stdDeviation="9"/></filter></defs>
+<rect width="512" height="512" rx="38" fill="url(#bg)"/><circle cx="256" cy="230" r="205" fill="url(#glow)"/><path d="M256 40 410 112 390 330 256 452 122 330 102 112Z" fill="#080611" stroke="#f59e0b" stroke-width="9"/><path d="M256 65 382 125 365 310 256 410 147 310 130 125Z" fill="url(#metal)" stroke="#f5eaff" stroke-opacity=".75" stroke-width="5"/><path d="M256 92 348 142 336 285 256 360 176 285 164 142Z" fill="#130d20" stroke="#f59e0b" stroke-width="7"/><path d="M256 117 302 183 256 255 210 183Z" fill="#f59e0b" opacity=".95"/><path d="M256 144 281 185 256 225 231 185Z" fill="#fff" opacity=".92"/><circle cx="256" cy="270" r="70" fill="#080611" stroke="#f59e0b" stroke-width="5"/><text x="256" y="297" text-anchor="middle" font-family="Georgia,serif" font-size="84" font-weight="900" fill="url(#metal)" stroke="#fff" stroke-width="1.5">M</text><path d="M105 380H407" stroke="#f59e0b" stroke-width="3" opacity=".8"/><text x="256" y="426" text-anchor="middle" font-family="Arial,sans-serif" font-size="29" font-weight="900" letter-spacing="4" fill="#fff">MORTAL++</text><path d="m90 100 15 15-15 15-15-15Zm332 0 15 15-15 15-15-15Z" fill="#f59e0b"/><circle cx="256" cy="38" r="8" fill="#fff"/><circle cx="256" cy="474" r="8" fill="#f59e0b"/></svg>
