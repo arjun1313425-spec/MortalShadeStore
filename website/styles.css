@@ -322,3 +322,19 @@ footer a:hover{color:#d4b8ff}
 .category-option.active{border-color:#a47ae2;background:linear-gradient(110deg,#392653,#261b3a);color:#fff;box-shadow:inset 0 0 0 1px #a47ae233,0 5px 16px #0003}
 .category-option:focus-visible{outline:2px solid #d6baff;outline-offset:3px}
 @media(max-width:560px){.category-picker{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:16px 0 13px}.category-option{width:100%;min-height:40px;padding:0 8px;font-size:10px}.category-option:last-child{grid-column:1/-1}}
+
+
+/* Refined network footer */
+.site-footer{display:block;margin-top:0;padding:34px max(7vw,24px) 20px;border-top:1px solid #382b4c;background:radial-gradient(ellipse at 16% 0%,#38205266,transparent 45%),linear-gradient(145deg,#100d19,#090811 75%);box-shadow:0 -18px 55px #0003}
+.footer-main{display:flex;align-items:center;gap:22px;max-width:1200px;margin:0 auto;padding:8px 0 28px}
+.footer-brand{flex:0 0 auto}
+.footer-brand .brand-mark{width:48px;height:48px;border-radius:13px}
+.footer-tagline{margin:0;color:#a9a0b9;font-size:12px;line-height:1.6}
+.footer-discord{display:inline-flex;align-items:center;gap:10px;margin-left:auto;padding:12px 16px;border:1px solid #7353a4;border-radius:9px;background:linear-gradient(110deg,#382454,#211831);color:#f6edff;font-size:10px;font-weight:800;letter-spacing:.08em;box-shadow:0 7px 22px #0004;transition:transform .18s,border-color .18s,filter .18s}
+.footer-discord:hover{transform:translateY(-2px);border-color:#b18aff;filter:brightness(1.13)}
+.footer-discord span:first-child{color:#c7a8ff;font-size:14px}
+.footer-discord span:last-child{color:#c7a8ff}
+.footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;max-width:1200px;margin:0 auto;padding-top:17px;border-top:1px solid #292137;color:#827a91;font-size:10px;line-height:1.7}
+.footer-bottom a{color:#b99aff;text-decoration:underline;text-decoration-color:#7655a066;text-underline-offset:3px}
+.footer-server{color:#a69ab8;letter-spacing:.06em}
+@media(max-width:620px){.site-footer{padding:26px 18px 18px}.footer-main{flex-wrap:wrap;gap:14px;padding-bottom:20px}.footer-tagline{flex:1 1 calc(100% - 70px);font-size:11px}.footer-discord{width:100%;justify-content:center;margin:2px 0 0}.footer-bottom{justify-content:center;text-align:center;flex-direction:column;gap:5px}}
