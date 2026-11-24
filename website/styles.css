@@ -183,3 +183,29 @@ footer a:hover{color:#d4b8ff}
   .discord-coupon-note>div{flex:1 1 calc(100% - 58px);min-width:0}
   .discord-coupon-note a{flex:0 1 auto;margin:4px 0 0 53px;white-space:normal;padding:10px 14px}
 }
+
+/* Refined server connection cards and floating back-to-top control */
+.store-server-row{padding:15px 15px 13px;background:linear-gradient(145deg,#171020,#0d0b14);border-color:#49365f;box-shadow:inset 0 1px #ffffff08,0 8px 22px #0003}
+.store-server-label{display:flex;align-items:center;gap:7px;color:#c2a9e8;font-size:9px;letter-spacing:.16em}
+.server-platform-icon{display:inline-grid;place-items:center;width:19px;height:19px;border-radius:6px;font-size:11px;line-height:1}
+.java-platform-icon{color:#e4c8ff;background:linear-gradient(145deg,#62428d,#35204f);box-shadow:0 0 14px #9c6bd633}
+.bedrock-platform-icon{color:#d9ffc0;background:linear-gradient(145deg,#397d49,#1c492f);box-shadow:0 0 14px #70ce7444}
+.java-server-row{grid-template-columns:30px minmax(0,1fr) auto}
+.java-server-row .store-server-label{grid-column:1/-1}
+.server-address-icon{grid-column:1;grid-row:2;display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:linear-gradient(145deg,#493064,#241832);color:#e8d7ff;font-size:18px;border:1px solid #75539b}
+.java-server-row>strong{grid-column:2;grid-row:2;font-size:13px;letter-spacing:.015em}
+.java-server-row .store-copy-ip{grid-column:3;grid-row:2}
+.server-connection-hint{grid-column:2/-1;color:#9586aa;font-size:8px;letter-spacing:.12em}
+.bedrock-icon{width:34px;height:34px;filter:drop-shadow(0 4px 8px #6acb6944)}
+.bedrock-server-row{grid-template-columns:36px minmax(0,1fr) auto}
+.bedrock-server-row .store-server-label{grid-column:1/-1}
+.bedrock-server-row .bedrock-icon{grid-column:1;grid-row:2/4;width:34px;height:34px}
+.bedrock-server-row>strong{grid-column:2;grid-row:2;font-size:13px;letter-spacing:.015em}
+.bedrock-server-row>small{grid-column:2;grid-row:3}
+.bedrock-server-row .store-copy-ip{grid-column:3;grid-row:2/4}
+.store-copy-ip{border-radius:8px;padding:9px 12px;letter-spacing:.1em;box-shadow:0 4px 14px #0003}
+.back-to-top{position:fixed;right:24px;bottom:24px;z-index:80;display:grid;place-items:center;width:48px;height:48px;border:1px solid #9a72d0;border-radius:15px;background:linear-gradient(145deg,#7546a9,#3d255f);color:#fff;font-size:26px;font-weight:800;line-height:1;box-shadow:0 8px 26px #0008,0 0 22px #8f5dcc44;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .2s,transform .2s,visibility .2s,filter .2s}
+.back-to-top.is-visible{opacity:1;visibility:visible;transform:translateY(0)}
+.back-to-top:hover{filter:brightness(1.2)}
+.back-to-top:focus-visible{outline:3px solid #d8bdff;outline-offset:3px}
+@media(max-width:480px){.back-to-top{right:15px;bottom:15px;width:44px;height:44px;border-radius:13px}.java-server-row>strong,.bedrock-server-row>strong{font-size:11px}}
