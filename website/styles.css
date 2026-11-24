@@ -288,3 +288,12 @@ footer a:hover{color:#d4b8ff}
  html{scroll-behavior:auto}
  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+
+/* Compact, discoverable category selector (no swipe required) */
+.category-picker{display:flex;align-items:center;gap:14px;width:100%;margin:22px 0 16px;padding:12px 15px;border:1px solid #392d4d;border-radius:10px;background:linear-gradient(110deg,#191427,#11101b)}
+.category-picker label{flex:0 0 auto;color:#b99aff;font-size:9px;font-weight:800;letter-spacing:.15em}
+.category-select{width:100%;min-width:0;padding:11px 38px 11px 13px;border:1px solid #654b88;border-radius:8px;appearance:auto;background:#211831;color:#fff;font:600 12px Inter;cursor:pointer}
+.category-select:focus-visible{outline:2px solid #d6baff;outline-offset:3px}
+.category-select option{background:#171322;color:#fff}
+@media(max-width:560px){.category-picker{gap:9px;padding:10px 11px}.category-picker label{font-size:8px;letter-spacing:.1em}.category-select{padding:10px 30px 10px 10px;font-size:11px}}
