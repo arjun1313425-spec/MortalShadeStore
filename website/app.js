@@ -167,6 +167,19 @@
     });
   }
   if (coinInput) coinInput.addEventListener("input",updateCalculator);
+  document.querySelectorAll(".store-copy-ip[data-copy]").forEach(button => {
+    button.addEventListener("click", async () => {
+      const original = button.textContent;
+      try {
+        await navigator.clipboard.writeText(button.dataset.copy);
+        button.textContent = "COPIED";
+        window.setTimeout(() => { button.textContent = original; }, 1600);
+      } catch (_) {
+        button.textContent = button.dataset.copy;
+        window.setTimeout(() => { button.textContent = original; }, 2600);
+      }
+    });
+  });
   const copyIp=document.getElementById("copy-server-ip");
   if(copyIp) copyIp.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(SERVER_HOST);copyIp.classList.add("copied");copyIp.querySelector("small").textContent="IP COPIED!";window.setTimeout(()=>{copyIp.classList.remove("copied");copyIp.querySelector("small").textContent="BEDROCK PORT: 19135 · TAP TO COPY";},1800);}catch(_){copyIp.querySelector("small").textContent=SERVER_HOST+":"+BEDROCK_PORT;}});
   if (cartButton && cartDialog) cartButton.addEventListener("click",()=>cartDialog.showModal());
