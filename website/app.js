@@ -199,6 +199,23 @@
     syncBackToTop();
     backToTop.addEventListener("click",()=>window.scrollTo({top:0,behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}));
   }
+  const gameSlides=document.getElementById("game-slides");
+  if(gameSlides){
+    const progress=document.getElementById("game-slide-progress");
+    const cards=Array.from(gameSlides.querySelectorAll(".game-slide"));
+    const updateGameProgress=()=>{
+      if(!progress || !cards.length) return;
+      const index=Math.min(cards.length-1,Math.max(0,Math.round(gameSlides.scrollLeft/(cards[0].getBoundingClientRect().width+14))));
+      progress.textContent=String(index+1).padStart(2,"0")+" / "+String(cards.length).padStart(2,"0");
+    };
+    document.querySelectorAll("[data-game-direction]").forEach(button=>button.addEventListener("click",()=>{
+      const first=cards[0]; if(!first) return;
+      const distance=first.getBoundingClientRect().width+14;
+      gameSlides.scrollBy({left:Number(button.dataset.gameDirection)*distance,behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
+    }));
+    gameSlides.addEventListener("scroll",updateGameProgress,{passive:true});
+    updateGameProgress();
+  }
   const year=document.getElementById("year");
   if(year) year.textContent=String(new Date().getFullYear());
   updateCalculator(); updateCart(); renderProducts();
