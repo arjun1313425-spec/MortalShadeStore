@@ -297,3 +297,11 @@ footer a:hover{color:#d4b8ff}
 .category-select:focus-visible{outline:2px solid #d6baff;outline-offset:3px}
 .category-select option{background:#171322;color:#fff}
 @media(max-width:560px){.category-picker{gap:9px;padding:10px 11px}.category-picker label{font-size:8px;letter-spacing:.1em}.category-select{padding:10px 30px 10px 10px;font-size:11px}}
+
+
+/* Minimal category control: selected category only, no extra heading */
+.category-picker{display:inline-flex;align-items:center;width:auto;max-width:100%;margin:20px 0 15px;padding:0;border:0;border-radius:0;background:transparent}
+.category-select{width:auto;min-width:210px;max-width:100%;padding:12px 42px 12px 15px;appearance:none;-webkit-appearance:none;border:1px solid #5b4279;border-radius:9px;background-color:#1b1428;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23cbb1f3' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;color:#f4eaff;font:700 12px Inter;box-shadow:0 5px 16px #0003;cursor:pointer;transition:border-color .18s,background-color .18s,box-shadow .18s}
+.category-select:hover{border-color:#a77bdf;background-color:#251a38;box-shadow:0 7px 20px #0004}
+.category-select:focus-visible{outline:2px solid #d6baff;outline-offset:3px}
+@media(max-width:560px){.category-picker{display:flex;width:100%;margin:17px 0 13px}.category-select{width:100%;min-width:0;padding:12px 40px 12px 14px}}
