@@ -173,10 +173,16 @@
       actions.append(details, add); card.append(actions); grid.append(card);
     });
   }
-  const categorySelect = document.getElementById("category-select");
-  if (categorySelect) {
-    categorySelect.addEventListener("change", () => {
-      activeCategory = categorySelect.value;
+  if (categoryTabs) {
+    categoryTabs.addEventListener("click", event => {
+      const button = event.target.closest("[data-category]");
+      if (!button) return;
+      activeCategory = button.dataset.category;
+      categoryTabs.querySelectorAll("[data-category]").forEach(option => {
+        const active = option === button;
+        option.classList.toggle("active", active);
+        option.setAttribute("aria-pressed", String(active));
+      });
       renderProducts();
     });
   }
