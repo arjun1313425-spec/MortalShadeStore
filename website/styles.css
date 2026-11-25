@@ -519,3 +519,16 @@ body{background:#08070e}
  .discord-button span{font-size:9px}
  .cart-button{padding:6px}
 }
+
+
+/* MortalShade pixel-font theme */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap');
+:root{--pixel-font:'Silkscreen',monospace;--pixel-heading:'Press Start 2P',monospace}
+html,body,button,input,select,textarea{font-family:var(--pixel-font)!important}
+body{font-size:14px;line-height:1.7;letter-spacing:.015em}
+h1,h2,h3,h4,.eyebrow,.brand,.primary-button,.discord-button,.category-option,.server-tab,.cart-button,.store-toolbar,.product-price,.product-name,.footer-brand-copy,.secure-note{font-family:var(--pixel-heading)!important;letter-spacing:0;line-height:1.7}
+h1{line-height:1.55!important}
+h2,h3{line-height:1.7}
+button,input,select,textarea{font-size:12px}
+.product-card p,.hero-copy,.section-description,.store-page-hero p,.coin-calculator p,.site-footer,.cart-footnote,.delivery-routing-note{font-family:var(--pixel-font)!important;line-height:1.9}
+@media(max-width:640px){body{font-size:12px}.brand{font-size:10px}.brand small{font-size:7px}.hero h1{font-size:clamp(25px,8vw,42px)}.store-page-hero h1{font-size:clamp(20px,6vw,32px)}h2,h3{font-size:clamp(14px,4vw,22px)}}
