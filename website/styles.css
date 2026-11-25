@@ -506,8 +506,8 @@ body{background:#08070e}
  .brand-mark.logo-frame{flex:0 0 32px;width:32px;height:32px}
  .brand-copy{font-size:clamp(8px,2.55vw,10px);letter-spacing:0;white-space:nowrap}
  .brand-copy small{font-size:6px;letter-spacing:.16em}
- .discord-button{flex:0 0 31px;width:31px;height:31px;min-width:31px;margin:0 2px 0 auto;padding:0;gap:0;font-size:0;border-radius:9px}
- .discord-button span{font-size:13px}
+ .discord-button{flex:0 0 auto;width:auto;min-width:0;height:34px;margin:0 1px;padding:0 9px;gap:5px;font-size:8px;letter-spacing:.04em;white-space:nowrap;border-radius:9px}
+ .discord-button span{font-size:10px}
  .cart-button{flex:0 0 auto;padding:7px 8px;font-size:10px;white-space:nowrap}
  .cart-button span{margin-left:4px;min-width:18px;height:18px;font-size:10px}
 }
@@ -515,6 +515,7 @@ body{background:#08070e}
  .brand{gap:5px}
  .brand-mark.logo-frame{flex-basis:29px;width:29px;height:29px}
  .brand-copy{font-size:8px}
- .discord-button{flex-basis:28px;width:28px;min-width:28px;height:28px}
+ .discord-button{flex:0 0 auto;width:auto;min-width:0;height:30px;padding:0 6px;gap:3px;font-size:7px}
+ .discord-button span{font-size:9px}
  .cart-button{padding:6px}
 }
