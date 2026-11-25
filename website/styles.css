@@ -485,3 +485,13 @@ body{background:#08070e}
 .product-card[class*="product-coins-"]:before{background:linear-gradient(90deg,transparent,#d9b86c,#fff0bc,transparent)}
 .product-card[class*="product-coins-"] .product-tier{border-color:#9a7a3d;background:#352a19;color:#f2d99a}
 @media(max-width:620px){.product-grid{gap:14px}.product-card{padding:15px;border-radius:13px}.product-art-image{height:122px}.product-card h3{font-size:16px}.product-card .product-price{font-size:13px!important}.product-card .product-actions{gap:7px}.product-card .details-button,.product-card .add-to-cart,.product-card .view-cart-button{min-height:40px;font-size:9px}}
+
+
+/* Original illustrated game-mode cards */
+.game-slide{position:relative;overflow:hidden;isolation:isolate}
+.game-slide:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 18%,#0b0912b8 62%,#0b0912 100%)}
+.game-mode-art{display:block;width:calc(100% + 44px);height:188px;max-width:none;margin:12px -22px 18px;object-fit:cover;border-bottom:1px solid #a77aff30;filter:saturate(.92);transition:transform .5s ease,filter .5s ease}
+.game-slide:hover .game-mode-art{transform:scale(1.035);filter:saturate(1.12) brightness(1.08)}
+.game-slide-symbol{display:none}
+.game-slide h3{position:relative;margin-top:0;text-shadow:0 3px 18px #000}
+@media(max-width:760px){.game-mode-art{height:150px;width:calc(100% + 30px);margin:10px -15px 15px}}
