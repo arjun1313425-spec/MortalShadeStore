@@ -713,3 +713,24 @@ body{min-height:100vh;display:flex;flex-direction:column}
 body>main{flex:1 0 auto}
 main:has(> .site-footer){display:flex;flex-direction:column}
 .site-footer{width:100%;margin-top:auto;flex-shrink:0}
+
+
+/* Homepage recent verified purchases */
+.recent-buyers-section{padding:clamp(58px,7vw,88px) max(8vw,24px);background:radial-gradient(ellipse at 15% 0,#241635,transparent 52%),#0c0a14}
+.recent-buyers-heading{max-width:1180px;margin:0 auto 26px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+.recent-buyers-heading h2{margin:9px 0;font-size:clamp(24px,4vw,36px);line-height:1.4}
+.recent-buyers-heading h2 span{color:#b58aff}
+.recent-buyers-heading p:not(.eyebrow){margin:0;color:#aaa3b7;font-size:12px;line-height:1.7}
+.recent-buyers-live{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid #3d304f;border-radius:999px;background:#14111e;color:#cfc4df;font-size:9px;letter-spacing:.08em;white-space:nowrap}
+.recent-buyers-live .live-dot{margin:0}
+.recent-buyers-list{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.recent-buyer-card{min-width:0;display:flex;align-items:center;gap:12px;padding:15px;border:1px solid #382c49;border-radius:13px;background:linear-gradient(145deg,#1b1727,#110f19)}
+.recent-buyer-avatar{flex:0 0 38px;width:38px;height:38px;display:grid;place-items:center;border:1px solid #7653a5;border-radius:11px;background:#281b3b;color:#d8bdff;font-size:17px}
+.recent-buyer-details{min-width:0;display:flex;flex:1;flex-direction:column;gap:3px}
+.recent-buyer-details strong{overflow:hidden;color:#f4effb;font-size:11px;text-overflow:ellipsis;white-space:nowrap}
+.recent-buyer-details span{overflow:hidden;color:#c0b5ce;font-size:9px;text-overflow:ellipsis;white-space:nowrap}
+.recent-buyer-details small{color:#898197;font-size:8px}
+.recent-buyer-verified{flex:0 0 auto;padding:5px 7px;border:1px solid #315d50;border-radius:999px;background:#14271f;color:#9ce6c7;font-size:7px;letter-spacing:.06em}
+.recent-buyers-empty{grid-column:1/-1;margin:0;padding:28px 18px;border:1px dashed #443454;border-radius:13px;background:#14111e;color:#aaa3b7;font-size:11px;text-align:center;line-height:1.7}
+@media(max-width:760px){.recent-buyers-section{padding:52px 18px}.recent-buyers-list{grid-template-columns:1fr 1fr}.recent-buyers-heading{align-items:flex-start}}
+@media(max-width:480px){.recent-buyers-list{grid-template-columns:1fr}.recent-buyers-heading{gap:10px}.recent-buyers-live{font-size:7px;padding:7px 9px}}
