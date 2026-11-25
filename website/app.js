@@ -16,7 +16,8 @@
   const COINS_PER_INR = 5;
   const SERVER_HOST = "play.mortalshade.fun";
   const BEDROCK_PORT = 19135;
-  const labels = {\n    "all-items": "All Items",
+  const labels = {
+    "all-items": "All Items",
     "lifesteal-ranks": "LifeSteal Ranks",
     "lifesteal-keys": "LifeSteal Keys",
     "survival-keys": "Survival Keys",
