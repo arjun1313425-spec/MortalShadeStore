@@ -154,7 +154,7 @@
       if (activeCategory === "lifesteal-keys") return p.server === "lifesteal" && p.category === "Key";
       if (activeCategory === "survival-keys") return p.server === "survival" && p.category === "Key";
       if (activeCategory === "coins") return p.category === "Coins";
-      if (activeCategory === "special") return p.category === "Special offer";
+      if (activeCategory === "special") return p.category === "Special offer" || p.featuredIn === "special";
       return p.server === "lifesteal" && p.category === "Key";
     });
     if (resultLabel) resultLabel.textContent = labels[activeCategory] + " · " + visible.length + " item" + (visible.length===1?"":"s");
