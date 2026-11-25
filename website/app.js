@@ -153,7 +153,7 @@
       if (activeCategory === "all-items") return true;
       if (activeCategory === "lifesteal-ranks") return p.server === "lifesteal" && p.category === "Rank" && p.id !== "spidey-special";
       if (activeCategory === "survival-ranks") return p.server === "survival" && p.category === "Rank";
-      if (activeCategory === "lifesteal-keys") return p.server === "lifesteal" && p.category === "Key";
+      if (activeCategory === "lifesteal-keys") return p.server === "lifesteal" && p.category === "Key" && p.id !== "lifesteal-spiderman-key";
       if (activeCategory === "survival-keys") return p.server === "survival" && p.category === "Key";
       if (activeCategory === "coins") return p.category === "Coins";
       if (activeCategory === "special") return p.category === "Special offer" || p.featuredIn === "special";
