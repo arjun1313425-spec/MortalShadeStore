@@ -19,6 +19,7 @@
   const labels = {
     "lifesteal-ranks": "LifeSteal Ranks",
     "lifesteal-keys": "LifeSteal Keys",
+    "survival-keys": "Survival Keys",
     "survival-ranks": "Survival Ranks",
     "coins": "MortalShade Coin Packs",
     "special": "Special Offers"
@@ -132,6 +133,8 @@
     let visible = products.filter(p => {
       if (activeCategory === "lifesteal-ranks") return p.server === "lifesteal" && p.category === "Rank" && p.id !== "spidey-special";
       if (activeCategory === "survival-ranks") return p.server === "survival" && p.category === "Rank";
+      if (activeCategory === "lifesteal-keys") return p.server === "lifesteal" && p.category === "Key";
+      if (activeCategory === "survival-keys") return p.server === "survival" && p.category === "Key";
       if (activeCategory === "coins") return p.category === "Coins";
       if (activeCategory === "special") return p.category === "Special offer";
       return p.server === "lifesteal" && p.category === "Key";
