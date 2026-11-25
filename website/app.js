@@ -149,6 +149,7 @@
   function renderProducts() {
     if (!grid) return;
     let visible = products.filter(p => {
+      if (activeCategory === "all-items") return true;
       if (activeCategory === "lifesteal-ranks") return p.server === "lifesteal" && p.category === "Rank" && p.id !== "spidey-special";
       if (activeCategory === "survival-ranks") return p.server === "survival" && p.category === "Rank";
       if (activeCategory === "lifesteal-keys") return p.server === "lifesteal" && p.category === "Key";
