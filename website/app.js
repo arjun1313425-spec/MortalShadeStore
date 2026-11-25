@@ -123,9 +123,27 @@
     const server = document.createElement("p"); server.className = "detail-server"; server.textContent = product.server === "network" ? "MortalShade Network · Coin Pack" : (product.server === "lifesteal" ? "LifeSteal" : "Survival") + " server";
     const price = document.createElement("p"); price.className = "detail-price"; price.textContent = inr.format(product.price) + " · " + coinsFormat.format(product.coins) + " MortalShade Coins";
     const description = document.createElement("p"); description.className = "detail-description"; description.textContent = product.description || "Details coming soon.";
-    detailsBody.append(art, title, server, price, description);
+    detailsBody.append(art, title, server, price);
+    if (product.details && product.details.length) {
+      const checklist = document.createElement("div"); checklist.className = "detail-checklist";
+      product.details.forEach(group => {
+        const section = document.createElement("section"); section.className = "detail-check-section";
+        const heading = document.createElement("h3"); heading.textContent = group.label;
+        const list = document.createElement("ul");
+        (group.items || []).forEach(item => {
+          const row = document.createElement("li");
+          const tick = document.createElement("span"); tick.className = "detail-check"; tick.setAttribute("aria-hidden", "true"); tick.textContent = "✓";
+          const copy = document.createElement("span"); copy.textContent = item;
+          row.append(tick, copy); list.append(row);
+        });
+        section.append(heading, list); checklist.append(section);
+      });
+      detailsBody.append(checklist);
+    } else {
+      detailsBody.append(description);
+    }
     if (product.duration) { const duration = document.createElement("p"); duration.className = "detail-meta"; duration.textContent = "Duration: " + product.duration; detailsBody.append(duration); }
-    if (product.specialOffer) { const offer = document.createElement("p"); offer.className = "detail-offer"; offer.textContent = product.specialOffer; detailsBody.append(offer); }
+    if (product.specialOffer) { const offer = document.createElement("p"); offer.className = "detail-offer"; offer.textContent = "OFFER: " + product.specialOffer; detailsBody.append(offer); }
     detailsDialog.showModal();
   }
   function renderProducts() {
