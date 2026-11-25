@@ -405,3 +405,55 @@ footer a:hover{color:#d4b8ff}
 .delivery-route-row strong{color:#d9c2ff;font-size:12px}
 .delivery-route-row span{color:#aaa1b8;font-size:11px;line-height:1.5}
 .delivery-routing-note{display:block;margin-top:8px;color:#8f879c;font-size:10px;line-height:1.6}
+
+
+/* MortalShade premium visual pass */
+:root{--bg:#08070e;--panel:#100e19;--panel2:#171222;--line:#302442;--purple:#a77aff;--pink:#e06ad8}
+body{background:#08070e}
+.site-header{height:78px;border-bottom:1px solid #352448;background:rgba(8,7,14,.88);box-shadow:0 10px 40px #0006}
+.brand{font-size:13px;letter-spacing:.1em}
+.brand-mark.logo-frame{border:1px solid #a77aff80;box-shadow:0 0 26px #9b6cff35,0 0 0 4px #a77aff0d}
+.discord-button{border:1px solid #65488c;background:linear-gradient(135deg,#21172f,#120f1b);box-shadow:0 6px 22px #0005}
+.hero{min-height:650px;padding:104px max(10vw,28px);background:radial-gradient(ellipse at 78% 45%,#542c7a66 0,transparent 34%),radial-gradient(ellipse at 10% 100%,#24183d66 0,transparent 48%),linear-gradient(115deg,#0b0912,#090710 65%,#100b19)}
+.hero:before{content:"";position:absolute;inset:0;opacity:.16;pointer-events:none;background-image:linear-gradient(#b68aff14 1px,transparent 1px),linear-gradient(90deg,#b68aff14 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(90deg,#000,transparent 90%)}
+.hero:after{background:linear-gradient(90deg,#090710 0%,#090710aa 44%,transparent 100%)}
+.hero-content{max-width:650px}
+.hero .eyebrow{font-size:10px;letter-spacing:.24em}
+.hero h1{font-size:clamp(48px,7.5vw,88px);line-height:.94;letter-spacing:-.075em;text-shadow:0 8px 45px #0008}
+.hero h1 span{background:linear-gradient(100deg,#e5d5ff,#a77aff 48%,#e17bd9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-copy{max-width:490px;color:#c2b9d1;font-size:15px;line-height:1.85}
+.primary-button{min-height:52px;padding:0 23px;border:1px solid #d0aaff66;border-radius:8px;background:linear-gradient(105deg,#7545c7,#a14dc5);box-shadow:0 12px 36px #8c4ce855, inset 0 1px #ffffff33;transition:transform .2s,box-shadow .2s}
+.primary-button:hover{transform:translateY(-3px);box-shadow:0 16px 42px #8c4ce877}
+.hero-art{right:10%;width:360px;height:360px;border-color:#b68aff44;background:radial-gradient(circle,#9d65e81c,transparent 67%);box-shadow:0 0 110px #8e54dd30,inset 0 0 80px #8e54dd20}
+.hero-server-logo{position:relative;z-index:1;width:72%;height:72%;object-fit:contain;filter:drop-shadow(0 18px 35px #0009)}
+.art-caption{right:-35px;bottom:42px;color:#e0caff;font-weight:800;text-shadow:0 3px 18px #000;letter-spacing:.22em}
+.server-panel{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;padding:14px;border:1px solid #51406a;border-radius:12px;background:linear-gradient(130deg,#1b1429dd,#100d19dd);box-shadow:0 14px 45px #0006;backdrop-filter:blur(12px)}
+.server-status,.ip-copy{min-height:54px}
+.ip-copy{border:1px solid #443457;border-radius:8px;background:#100d18;color:#eee5ff}
+.game-showcase{padding:76px max(8vw,24px);background:linear-gradient(180deg,#0b0912,#100c18 55%,#0b0912)}
+.game-showcase-heading h2{font-size:clamp(32px,5vw,48px);letter-spacing:-.06em}
+.game-slide{border:1px solid #46345f;border-radius:15px;background:linear-gradient(145deg,#1c1529,#0f0c17);box-shadow:0 18px 45px #0005;transition:transform .25s,border-color .25s,box-shadow .25s}
+.game-slide:hover{transform:translateY(-5px);border-color:#a77aff;box-shadow:0 22px 55px #0008,0 0 28px #9b6cff1b}
+.game-slide h3{letter-spacing:.04em}
+.game-slide-tag{color:#d5b9ff}
+.info-section{padding-top:78px;padding-bottom:78px;background:radial-gradient(ellipse at 50% 0,#38205266,transparent 58%),#0d0a14}
+.step-card{border-color:#403050;border-radius:13px;background:linear-gradient(145deg,#191326,#100e18);transition:transform .2s,border-color .2s}
+.step-card:hover{transform:translateY(-3px);border-color:#8d65c3}
+.store-page-hero{padding-top:72px;padding-bottom:55px;background:radial-gradient(ellipse at 78% 0,#4a2b6c66,transparent 48%),linear-gradient(110deg,#0b0912,#100b19)}
+.store-page-hero h1{font-size:clamp(36px,5.5vw,60px);letter-spacing:-.07em}
+.product-card{border-color:#3b2d50;border-radius:13px;background:linear-gradient(145deg,#1b1527,#100e18);box-shadow:0 12px 35px #0003}
+.product-card:hover{border-color:#a77aff;box-shadow:0 18px 45px #0007,0 0 24px #9b6cff18}
+.add-to-cart,.details-button{border-radius:8px}
+.site-footer{background:#090710;border-color:#30243d}
+@media(max-width:760px){
+ .site-header{height:68px}
+ .hero{min-height:660px;padding:76px 22px 58px}
+ .hero-art{right:-145px;top:48%;width:300px;height:300px;opacity:.22}
+ .hero:after{background:linear-gradient(90deg,#090710 0%,#090710bb 72%,transparent)}
+ .hero-content{max-width:100%}
+ .hero h1{font-size:clamp(45px,12vw,68px)}
+ .hero-copy{font-size:13px}
+ .server-panel{display:grid;grid-template-columns:1fr}
+ .game-showcase{padding:54px 18px}
+ .store-page-hero{padding:48px 20px 34px}
+}
