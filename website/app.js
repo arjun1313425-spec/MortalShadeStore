@@ -22,11 +22,11 @@
     "survival-keys": "Survival Keys",
     "survival-ranks": "Survival Ranks",
     "coins": "MortalShade Coin Packs",
-    "special": "Special Offers"
+    "special": "Special & Bundles"
   };
   const inr = new Intl.NumberFormat("en-IN", {style:"currency",currency:"INR",maximumFractionDigits:2});
   const coinsFormat = new Intl.NumberFormat("en-IN");
-  let activeCategory = "lifesteal-ranks";
+  let activeCategory = "all-items";
   // Use the same cart storage as checkout so items survive navigation and new tabs.
   let cart = [];
   try { cart = JSON.parse(localStorage.getItem("mortalshade-cart") || "[]"); } catch (_) { cart = []; }
