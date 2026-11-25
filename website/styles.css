@@ -352,3 +352,19 @@ footer a:hover{color:#d4b8ff}
 .site-footer .footer-brand .brand-mark{width:32px;height:32px;border-radius:9px;font-size:16px}
 .site-footer .footer-brand small{font-size:8px;letter-spacing:.16em}
 .site-footer .footer-bottom{justify-content:center;padding:0;border:0;text-align:center}
+
+/* Keep MortalShade Network Store branding on one line everywhere */
+.brand-name{display:block;white-space:nowrap;line-height:1.2;font-size:clamp(10px,1.05vw,14px);letter-spacing:.075em}
+.brand-name .brand-accent{margin-right:3px}
+.brand-mark.logo-frame{overflow:hidden;flex:0 0 auto}
+.brand-mark.logo-frame img{display:block;width:100%;height:100%;object-fit:cover;border-radius:inherit}
+.site-footer .footer-brand{gap:9px}
+.site-footer .footer-brand .brand-mark{width:38px;height:38px;padding:0}
+.site-footer .footer-brand .brand-name{font-size:11px;letter-spacing:.06em}
+@media(max-width:620px){
+  .site-header{gap:8px;padding-left:12px;padding-right:12px}
+  .brand{gap:8px;min-width:0;letter-spacing:0}
+  .brand-mark.logo-frame{width:36px;height:36px}
+  .brand-name{font-size:clamp(9px,2.8vw,12px);letter-spacing:.035em}
+  .site-footer .footer-brand .brand-name{font-size:10px}
+}
