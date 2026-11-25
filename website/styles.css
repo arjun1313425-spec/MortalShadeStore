@@ -705,3 +705,11 @@ body{background:#090811;color:#f6f2fc}
 .checkout-field input,.checkout-field select{border-radius:10px;border-color:#49385e;background:#0f0d17}
 .checkout-submit{width:100%;justify-content:center}
 @media(max-width:760px){.checkout-main{padding:36px 18px 54px}}
+
+
+/* Keep the site footer at the bottom on short pages without making it fixed. */
+html,body{min-height:100%}
+body{min-height:100vh;display:flex;flex-direction:column}
+body>main{flex:1 0 auto}
+main:has(> .site-footer){display:flex;flex-direction:column}
+.site-footer{width:100%;margin-top:auto;flex-shrink:0}
