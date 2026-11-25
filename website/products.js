@@ -19,5 +19,11 @@ window.MORTALSHADE_PRODUCTS = [
   { id: "coins-2000", name: "2,000 MortalShade Coins", server: "network", category: "Coins", coins: 2000, price: 400, currency: "INR", art: "./assets/coin-pack.svg", description: "A coin-only pack for your MortalShade account. Purchase coins without buying a rank." },
   { id: "coins-5000", name: "5,000 MortalShade Coins", server: "network", category: "Coins", coins: 5000, price: 1000, currency: "INR", art: "./assets/coin-pack.svg", description: "A coin-only pack for your MortalShade account. Purchase coins without buying a rank." },
   { id: "coins-10000", name: "10,000 MortalShade Coins", server: "network", category: "Coins", coins: 10000, price: 2000, currency: "INR", art: "./assets/coin-pack.svg", description: "A coin-only pack for your MortalShade account. Purchase coins without buying a rank." },
+  { id: "lifesteal-nightmare-key", name: "Nightmare Key", server: "lifesteal", category: "Key", coins: 250, price: 50, currency: "INR", description: "A Nightmare crate key for the LifeSteal server." },
+  { id: "lifesteal-winter-key", name: "Winter Key", server: "lifesteal", category: "Key", coins: 350, price: 70, currency: "INR", description: "A Winter crate key for the LifeSteal server." },
+  { id: "lifesteal-spawner-key", name: "Spawner Key", server: "lifesteal", category: "Key", coins: 200, price: 40, currency: "INR", description: "A Spawner crate key for the LifeSteal server." },
+  { id: "lifesteal-invictus-key", name: "Invictus Key", server: "lifesteal", category: "Key", coins: 150, price: 30, currency: "INR", description: "An Invictus crate key for the LifeSteal server." },
+  { id: "lifesteal-koth-key", name: "KOTH Key", server: "lifesteal", category: "Key", coins: 100, price: 20, currency: "INR", description: "A KOTH crate key for the LifeSteal server." },
+  { id: "lifesteal-common-key", name: "Common Key", server: "lifesteal", category: "Key", coins: 50, price: 10, currency: "INR", description: "A Common crate key for the LifeSteal server." },
   { id: "lifesteal-spiderman-key", name: "Spider-Man Key", server: "lifesteal", category: "Key", coins: 350, price: 70, currency: "INR", description: "Open a MortalShade Spider-Man crate for a chance to unlock exclusive Spider-Verse gear. Buy 10 keys and follow the Discord claim process for the free 28-day Spidey Rank promotion." }
 ];
