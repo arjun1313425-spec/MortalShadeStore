@@ -605,3 +605,19 @@ h1,h2,h3,h4{line-height:1.5;letter-spacing:.045em}
   .detail-checklist{grid-template-columns:1fr;gap:8px}
   .detail-check-section{padding:11px}
 }
+
+/* Keep the store connection panel compact on narrow screens */
+.store-server-block{gap:9px;padding:10px}
+.store-server-row{gap:5px 9px;padding:10px}
+.store-server-label{line-height:1.35;letter-spacing:.08em}
+.store-server-row>strong{line-height:1.35;letter-spacing:0}
+.store-server-row>small,.server-connection-hint{line-height:1.4;letter-spacing:.035em}
+.store-support-button{padding:11px;line-height:1.45}
+.store-support-button small{line-height:1.5}
+@media(max-width:560px){
+ .store-server-block{margin-top:18px;gap:8px}
+ .store-server-row{padding:10px;gap:5px 8px}
+ .store-server-row>strong{font-size:11px}
+ .store-server-row>small,.store-server-label{font-size:8px}
+ .store-support-button{min-height:58px}
+}
