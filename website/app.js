@@ -262,9 +262,67 @@
     gameSlides.addEventListener("scroll",updateGameProgress,{passive:true});
     updateGameProgress();
   }
+  async function loadRecentBuyers() {
+    const list = document.getElementById("recent-buyers-list");
+    if (!list) return;
+    const showMessage = message => {
+      const paragraph = document.createElement("p");
+      paragraph.className = "recent-buyers-empty";
+      paragraph.textContent = message;
+      list.replaceChildren(paragraph);
+      list.setAttribute("aria-busy", "false");
+    };
+    try {
+      const response = await fetch("./data/recent-buyers.json", {cache:"no-store"});
+      if (!response.ok) throw new Error("Recent buyers feed unavailable");
+      const payload = await response.json();
+      const buyers = Array.isArray(payload.buyers) ? payload.buyers : [];
+      const verified = buyers
+        .filter(buyer => buyer && ["PAID","DELIVERED"].includes(String(buyer.status || "").toUpperCase()))
+        .filter(buyer => typeof buyer.username === "string" && typeof buyer.product === "string" && typeof buyer.server === "string" && Number.isFinite(Date.parse(buyer.purchasedAt)))
+        .sort((a,b) => Date.parse(b.purchasedAt) - Date.parse(a.purchasedAt))
+        .slice(0,6);
+      list.replaceChildren();
+      if (!verified.length) {
+        showMessage("No verified purchases yet. Be among the first MortalShade supporters!");
+        return;
+      }
+      const relative = new Intl.RelativeTimeFormat("en", {numeric:"auto"});
+      verified.forEach(buyer => {
+        const card = document.createElement("article");
+        card.className = "recent-buyer-card";
+        const avatar = document.createElement("span");
+        avatar.className = "recent-buyer-avatar";
+        avatar.setAttribute("aria-hidden","true");
+        avatar.textContent = "✦";
+        const details = document.createElement("div");
+        details.className = "recent-buyer-details";
+        const name = document.createElement("strong");
+        name.textContent = buyer.username;
+        const item = document.createElement("span");
+        item.textContent = buyer.product + " · " + buyer.server;
+        const time = document.createElement("small");
+        const minutes = Math.round((Date.now() - Date.parse(buyer.purchasedAt)) / 60000);
+        const amount = Math.abs(minutes);
+        if (amount < 60) time.textContent = relative.format(-minutes, "minute");
+        else if (amount < 1440) time.textContent = relative.format(-Math.round(minutes/60), "hour");
+        else time.textContent = relative.format(-Math.round(minutes/1440), "day");
+        const badge = document.createElement("span");
+        badge.className = "recent-buyer-verified";
+        badge.textContent = "VERIFIED";
+        details.append(name,item,time);
+        card.append(avatar,details,badge);
+        list.append(card);
+      });
+      list.setAttribute("aria-busy","false");
+    } catch (_) {
+      showMessage("Recent purchases are temporarily unavailable. Please check back soon.");
+    }
+  }
   const year=document.getElementById("year");
   if(year) year.textContent=String(new Date().getFullYear());
   updateCalculator(); updateCart(); renderProducts();
   updateServerStatus();
+  loadRecentBuyers();
   if(document.getElementById("server-status-text")) window.setInterval(updateServerStatus,120000);
 })();
