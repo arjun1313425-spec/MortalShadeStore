@@ -154,13 +154,14 @@
     }
     visible.forEach(product => {
       const card = document.createElement("article");
-      card.className = "step-card product-card";
+      card.className = "step-card product-card product-" + product.id;
       const art = document.createElement("img"); art.className = "product-art-image" + (product.category === "Coins" ? " coin-pack-art" : ""); art.src = product.art || ("./assets/ranks/" + product.id + ".svg"); art.alt = product.name + (product.category === "Coins" ? " coin pack artwork" : " emblem"); art.loading = "lazy"; art.addEventListener("error", () => { art.hidden = true; }, {once:true});
+      const tier = document.createElement("span"); tier.className = "product-tier"; tier.textContent = product.category === "Coins" ? "COIN PACK" : product.specialOffer ? "LIMITED OFFER" : (product.server || "network").toUpperCase() + " · " + product.category.toUpperCase();
       const eyebrow = document.createElement("p"); eyebrow.className = "eyebrow"; eyebrow.textContent = labels[activeCategory];
       const name = document.createElement("h3"); name.textContent = product.name;
       const desc = document.createElement("p"); desc.textContent = product.description || "";
       const price = document.createElement("p"); price.className = "product-price"; price.textContent = coinsFormat.format(product.coins)+" Coins · "+inr.format(product.price);
-      card.append(art,eyebrow,name,desc,price);
+      card.append(tier,art,eyebrow,name,desc,price);
       if (product.duration) { const duration=document.createElement("p"); duration.className="product-meta"; duration.textContent="Duration: "+product.duration; card.append(duration); }
       const actions = document.createElement("div"); actions.className = "product-actions";
       const details = document.createElement("button"); details.type = "button"; details.className = "server-tab details-button"; details.textContent = "View details";
