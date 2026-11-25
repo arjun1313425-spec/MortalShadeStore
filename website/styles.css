@@ -3,7 +3,7 @@
   font-family:'Monocraft';
   src:url('https://cdn.jsdelivr.net/gh/IdreesInc/Monocraft@main/dist/Monocraft-ttf/Monocraft.ttf') format('truetype');
   font-style:normal;
-  font-weight:100 900;
+  font-weight:400;
   font-display:swap;
 }
 html,body,body *{font-family:'Monocraft',monospace!important}
