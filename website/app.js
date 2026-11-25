@@ -66,6 +66,7 @@
   }
   function updateCart() {
     if (cartCount) cartCount.textContent = String(cart.length);
+    if (grid) grid.querySelectorAll(".view-cart-button").forEach(button => { button.hidden = cart.length === 0; });
     if (!cartItems) return;
     cartItems.replaceChildren();
     if (!cart.length) { cartItems.textContent = "Your cart is empty."; return; }
