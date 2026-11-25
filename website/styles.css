@@ -368,3 +368,18 @@ footer a:hover{color:#d4b8ff}
   .brand-name{font-size:clamp(9px,2.8vw,12px);letter-spacing:.035em}
   .site-footer .footer-brand .brand-name{font-size:10px}
 }
+
+/* Footer-only logo lockup: restore the original header layout above */
+.site-footer{padding:18px 14px 14px;background:#0b0911;border-top:1px solid #2c223a;box-shadow:none}
+.site-footer .footer-main{display:flex;justify-content:center;align-items:center;margin:0 auto;padding:0 0 10px;gap:0}
+.site-footer .footer-brand{display:flex;align-items:center;gap:10px;white-space:normal}
+.site-footer .footer-brand .brand-mark{width:44px;height:44px;padding:0;border-radius:11px}
+.site-footer .footer-brand .footer-brand-copy{display:flex;flex-direction:column;gap:3px;white-space:nowrap;font-size:13px;font-weight:800;letter-spacing:.07em;line-height:1.2}
+.site-footer .footer-brand .footer-brand-copy small{display:block;margin:0;color:#8d849f;font-size:9px;letter-spacing:.2em;line-height:1.2}
+.site-footer .footer-bottom{display:flex;justify-content:center;align-items:center;padding:0;border:0;text-align:center;font-size:11px;line-height:1.5}
+@media(max-width:620px){
+ .site-footer{padding:16px 10px 12px}
+ .site-footer .footer-brand .brand-mark{width:42px;height:42px}
+ .site-footer .footer-brand .footer-brand-copy{font-size:12px}
+ .site-footer .footer-brand .footer-brand-copy small{font-size:8px}
+}
