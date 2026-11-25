@@ -170,7 +170,14 @@
         cart.push({id:product.id,name:product.name,server:product.server,price:product.price,coins:product.coins});
         saveCart(); updateCart(); flyToCart(card);
       });
-      actions.append(details, add); card.append(actions); grid.append(card);
+      const viewCart = document.createElement("button");
+      viewCart.className="server-tab view-cart-button"; viewCart.type="button"; viewCart.textContent="View your cart";
+      viewCart.hidden = cart.length === 0;
+      viewCart.addEventListener("click", () => {
+        updateCart();
+        if (cartDialog && !cartDialog.open) cartDialog.showModal();
+      });
+      actions.append(details, add, viewCart); card.append(actions); grid.append(card);
     });
   }
   if (categoryTabs) {
