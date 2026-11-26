@@ -119,7 +119,7 @@
     art.className = "detail-rank-art";
     art.src = product.art || ("./assets/ranks/" + product.id + ".svg");
     art.alt = product.name + " artwork";
-    art.addEventListener("error", () => { art.hidden = true; }, {once:true});
+    art.addEventListener("error", () => { if (art.src.endsWith(".jpg")) { art.src = "./assets/ranks/" + product.id + ".svg"; } else { art.hidden = true; } });
     const title = document.createElement("h2"); title.textContent = product.name;
     const server = document.createElement("p"); server.className = "detail-server"; server.textContent = product.server === "network" ? "MortalShade Network · Coin Pack" : (product.server === "lifesteal" ? "LifeSteal" : "Survival") + " server";
     const price = document.createElement("p"); price.className = "detail-price"; price.textContent = inr.format(product.price) + " · " + coinsFormat.format(product.coins) + " MortalShade Coins";
