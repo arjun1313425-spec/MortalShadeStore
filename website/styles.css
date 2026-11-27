@@ -734,3 +734,77 @@ main:has(> .site-footer){display:flex;flex-direction:column}
 .recent-buyers-empty{grid-column:1/-1;margin:0;padding:28px 18px;border:1px dashed #443454;border-radius:13px;background:#14111e;color:#aaa3b7;font-size:11px;text-align:center;line-height:1.7}
 @media(max-width:760px){.recent-buyers-section{padding:52px 18px}.recent-buyers-list{grid-template-columns:1fr 1fr}.recent-buyers-heading{align-items:flex-start}}
 @media(max-width:480px){.recent-buyers-list{grid-template-columns:1fr}.recent-buyers-heading{gap:10px}.recent-buyers-live{font-size:7px;padding:7px 9px}}
+
+
+/* MortalShade professional visual refresh — graphite, crimson, emerald and restrained gold */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+:root{color-scheme:dark;--bg:#101214;--panel:#181b1e;--panel2:#202428;--line:#30363b;--text:#f3f5f6;--muted:#a3abb1;--purple:#c43b43;--pink:#d05b55;--cyan:#70b98b}
+html,body,body *{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important}
+body{background:#101214;color:#f3f5f6;letter-spacing:0;line-height:1.65}
+.site-header{height:74px;background:rgba(16,18,20,.97);border-bottom:1px solid #2b3034;box-shadow:0 5px 20px #0005;backdrop-filter:blur(12px)}
+.brand{letter-spacing:.045em}.brand-mark{border:1px solid #4a5055;border-radius:8px;background:#202428;box-shadow:none}.brand-accent{color:#e2e6e8}
+.brand small{color:#8c969d}.discord-button{background:#24292d;border:1px solid #41484e;box-shadow:none;border-radius:6px}
+.discord-button span{color:#c7cdd1}
+.cart-button{background:#e2e6e8;color:#15191c;border:1px solid #e2e6e8;border-radius:6px}.cart-button span{background:#c43b43;color:white}
+.hero{background:linear-gradient(110deg,#15191c 0%,#101214 68%,#171b1e 100%);min-height:510px}
+.hero:after{background:linear-gradient(90deg,#111416 0%,#111416dd 40%,transparent 100%)}
+.hero .eyebrow,.store-page-hero .eyebrow{color:#d66a6d}
+.hero h1 span,.section-heading h2 span,.info-section h2 span,.store-page-hero h1 span{color:#e0e4e6}
+.hero-copy{color:#b1b9be}
+.primary-button{background:#c43b43;color:#fff;border-radius:5px;box-shadow:none}
+.hero-art{border:1px solid #454c51;box-shadow:0 0 70px #0005,inset 0 0 45px #fff08}
+.hero-emblem{border:1px solid #687178;border-radius:16px;background:linear-gradient(145deg,#343b40,#171b1e);text-shadow:none;box-shadow:0 15px 45px #0008}
+.hero-emblem span{color:#e0e4e6}
+.art-caption{color:#aab2b7}
+.store-page-hero{background:linear-gradient(110deg,#171b1e,#111416 72%,#1b2023)}
+.store-section,.info-section{background:#121619}
+.section-heading h2,.info-section h2{letter-spacing:-.035em}
+.coin-calculator,.checkout-card{background:#1a1f23;border:1px solid #353d42;border-radius:8px;box-shadow:none}
+.coin-calculator input,.checkout-field input,.checkout-field select{background:#111619;border:1px solid #3b444a;border-radius:5px}
+.calculator-result strong{color:#e5e9eb}
+.category-tabs{gap:8px}
+.server-tab,.category-option{background:#1b2024;border:1px solid #343c42;border-radius:5px;color:#c0c7cc}
+.server-tab:hover,.server-tab.active,.category-option:hover,.category-option.active{background:#30383e;border-color:#78838a;color:#fff}
+.product-grid{gap:18px}
+.product-card{background:#1a1f23;border:1px solid #343c42;border-radius:7px;box-shadow:none;min-height:350px}
+.product-card:hover{transform:translateY(-3px);border-color:#68747b;box-shadow:0 12px 28px #0005}
+.product-card h3{font-size:18px;letter-spacing:-.02em}
+.product-price{color:#f0f2f3!important}
+.product-art-image{width:116px;height:116px;filter:drop-shadow(0 8px 16px #0007)}
+.product-actions button,.add-to-cart{border-radius:5px}
+.add-to-cart{background:#c43b43;border:1px solid #c43b43;color:#fff}
+.details-button{background:#252c31;border:1px solid #465158;color:#e5e9eb}
+.product-details-dialog,.cart-dialog{background:#1a1f23;border:1px solid #465158;border-radius:8px}
+.product-details-dialog::backdrop,.cart-dialog::backdrop{background:#050708dd}
+.discord-coupon-note{background:#1b2024;border:1px solid #3c454b;border-radius:7px;box-shadow:none}
+.coupon-spark{background:#30383e;color:#e9edef;border-radius:7px}
+.discord-coupon-note strong{color:#f0f2f3}
+.discord-coupon-note a{background:#c43b43;border:1px solid #c43b43;border-radius:5px;box-shadow:none}
+.store-server-block{background:#1a1f23;border:1px solid #394248;border-radius:8px;box-shadow:none}
+.store-server-row{background:#13181b;border:1px solid #343d43;border-radius:6px}
+.store-server-label{color:#aeb8be}
+.store-server-row>strong{color:#f0f2f3}
+.store-copy-ip{background:#2b3338;border:1px solid #566168;color:#f0f2f3;border-radius:4px}
+.store-support-button{background:#252c31;border:1px solid #465158;border-radius:6px}
+.store-support-button>span:first-child{color:#e4e8ea}
+.server-status,.ip-copy{background:#1b2024;border:1px solid #3b444a;border-radius:6px}
+.ip-copy{color:#fff}
+.ip-copy small{color:#c0c8cd}
+.status-light.online{background:#70c493;box-shadow:0 0 10px #70c49366}
+.recent-buyers-section,.recent-buyers-list{background:#121619}
+.recent-buyers-heading h2 span{color:#e1e5e7}
+.recent-buyers-live{background:#1a2023;border:1px solid #3c474d;color:#d1d7da}
+.recent-buyer-card{background:#1b2024;border:1px solid #353f45;border-radius:6px}
+.recent-buyer-avatar{background:#30383e;border:1px solid #59646b;color:#fff;border-radius:6px}
+.recent-buyer-verified{background:#173023;border-color:#386c4c;color:#a8e3bd}
+.recent-buyers-empty{background:#1a1f23;border-color:#3d474d;color:#b1b9be}
+.step-card{background:#1b2024;border:1px solid #353f45;border-radius:6px}
+.step-card>span{color:#e16a70}
+.notice{background:#1b2024;border-left-color:#c43b43}
+.checkout-warning{background:#2a2418;border-left-color:#c99b4b;color:#ead5a8}
+footer{border-top:1px solid #30383d}
+footer a:hover{color:#fff}
+.cart-dialog{color:#f3f5f6}
+.cart-line strong{color:#fff}
+.remove-cart-item{color:#e27679}
+@media(max-width:760px){.hero{background:linear-gradient(120deg,#15191c,#101214)}.hero-art{opacity:.17}}
