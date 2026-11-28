@@ -24,15 +24,27 @@
   <script src="./products.js" defer></script>
   <script src="./coupons.js" defer></script>
   <script src="./app.js" defer></script>
+  <script src="./account-ui.js" defer></script>
   <script src="./site-guard.js" defer></script>
 </head>
 <body>
+
+  <div id="ms-intro" class="ms-intro" role="status" aria-label="Loading MortalShade Network">
+    <div class="ms-intro-inner">
+      <div class="ms-intro-emblem"><img src="./assets/server-logo.png" alt="" onerror="this.style.display='none'"><span>M</span></div>
+      <div class="ms-intro-wordmark">MORTAL<span>SHADE</span></div>
+      <div class="ms-intro-subtitle">NETWORK</div>
+      <div class="ms-intro-track"><span></span></div>
+      <p>ENTER THE NETWORK</p>
+    </div>
+  </div>
   <header class="site-header">
     <a class="brand" href="./index.html" aria-label="MortalShade Store home">
       <span class="brand-mark logo-frame"><img src="./assets/server-logo.png" alt="MortalShade server logo" onerror="this.style.display='none';this.parentElement.textContent='M'"></span>
       <span>MORTAL<span class="brand-accent">SHADE</span><small>NETWORK STORE</small></span>
     </a>
     <nav class="header-links" aria-label="Main navigation"><a href="./index.html">HOME</a><a href="./store.html" aria-current="page">STORE</a><a href="https://discord.gg/FRk5gZ32hZ" target="_blank" rel="noopener noreferrer">COMMUNITY</a></nav>
+    <button class="account-button" id="open-player-login" type="button">PLAYER LOGIN</button>
     <a class="discord-button" href="https://discord.gg/FRk5gZ32hZ" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">✦</span> JOIN DISCORD</a>
     <button class="cart-button" id="cart-button" type="button" aria-label="Shopping cart">Cart <span id="cart-count">0</span></button>
   </header>
@@ -91,5 +103,19 @@
     <p class="cart-footnote">Checkout preview only. No payment is collected yet.</p>
   </dialog>
   <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top" title="Back to top"><span aria-hidden="true">↑</span></button>
+
+  <dialog id="player-login-dialog" class="player-login-dialog">
+    <div class="dialog-heading"><div><p class="eyebrow">MORTALSHADE ACCOUNT</p><h2>PLAYER LOGIN</h2></div><button id="close-player-login" class="icon-button" type="button" aria-label="Close login">×</button></div>
+    <p class="login-intro">Sign in to keep your player profile and purchases together across visits.</p>
+    <button id="discord-login-start" class="login-provider discord-provider" type="button"><span class="provider-mark">◈</span><span><strong>Continue with Discord</strong><small>Secure Discord account sign-in</small></span><span class="provider-arrow">↗</span></button>
+    <div class="login-divider"><span>OR LINK YOUR MINECRAFT PLAYER</span></div>
+    <form id="minecraft-link-form" class="minecraft-link-form">
+      <label for="minecraft-link-username">Minecraft username</label>
+      <input id="minecraft-link-username" name="minecraft-username" maxlength="16" autocomplete="off" placeholder="Your in-game username" required>
+      <button class="login-provider minecraft-provider" type="submit"><span class="provider-mark">▦</span><span><strong>Link Minecraft account</strong><small>Verify in-game with a one-time code</small></span><span class="provider-arrow">→</span></button>
+    </form>
+    <p id="login-setup-status" class="login-setup-status" role="status" hidden></p>
+    <p class="login-security-note">We will never ask for your Minecraft or Microsoft password. Minecraft ownership should be verified by a one-time code confirmed inside the server.</p>
+  </dialog>
 </body>
 </html>
