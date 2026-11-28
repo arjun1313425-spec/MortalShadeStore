@@ -864,3 +864,7 @@ button,input,select,textarea{font:inherit!important}
  .product-art-image{height:180px}
  .discord-button{font-size:9px;padding:9px}
 }
+
+.header-links{display:flex;align-items:center;gap:25px;margin-left:auto;margin-right:28px;color:#b9b4aa;font-size:10px;font-weight:700;letter-spacing:.12em}
+.header-links a{transition:color .18s}.header-links a:hover,.header-links a[aria-current="page"]{color:#e4a09a}
+@media(max-width:760px){.header-links{gap:12px;margin-right:10px;font-size:8px}.site-header .discord-button{display:none}}
