@@ -1276,3 +1276,47 @@ input,select,textarea{font-size:16px}
 @media(prefers-reduced-motion:reduce){
   .ms-intro::before,.ms-intro::after,.ms-intro-inner,.ms-intro-emblem,.ms-intro-track span,.ms-intro-wordmark,.ms-intro-subtitle,.ms-intro-track,.ms-intro-inner>p{animation:none!important}
 }
+
+
+/* Game showcase artwork: fill each responsive card consistently */
+.game-slides{grid-auto-columns:minmax(0,30%);min-width:0}
+.game-slide{min-width:0;box-sizing:border-box}
+.game-mode-art{
+  display:block;
+  width:100%;
+  height:clamp(150px,18vw,210px);
+  max-width:none;
+  flex:0 0 auto;
+  margin:18px 0 16px;
+  object-fit:cover;
+  object-position:center;
+  border:1px solid #ffffff16;
+  border-radius:9px;
+  background:#100e17;
+}
+.game-slide-symbol{display:none}
+.game-slide h3,.game-slide p,.game-slide-tag{min-width:0;overflow-wrap:anywhere}
+@media(max-width:700px){
+  .game-showcase{padding:44px 18px}
+  .game-showcase-heading{display:flex;flex-wrap:wrap;align-items:flex-start}
+  .game-showcase-heading>div:first-child{min-width:0;flex:1 1 100%}
+  .game-showcase-heading h2{max-width:100%;font-size:clamp(30px,8vw,42px);line-height:1.08}
+  .game-showcase-heading p:not(.eyebrow){max-width:36ch;font-size:13px}
+  .game-slide-controls{margin-left:auto}
+  .game-slides{grid-auto-columns:minmax(0,84%);gap:12px;padding-right:18px}
+  .game-slide{padding:18px;min-height:0}
+  .game-mode-art{height:auto;aspect-ratio:16/9;object-fit:cover;margin:14px 0 15px}
+  .game-slide h3{font-size:clamp(18px,5vw,22px)}
+  .game-slide p{font-size:12px;line-height:1.65}
+  .game-slide-tag{margin-top:16px;font-size:9px}
+}
+@media(max-width:380px){
+  .game-showcase{padding-inline:14px}
+  .game-slides{grid-auto-columns:90%}
+  .game-slide{padding:15px}
+  .game-mode-art{aspect-ratio:16/9}
+}
+@media(min-width:701px) and (max-width:1100px){
+  .game-slides{grid-auto-columns:minmax(0,42%)}
+  .game-mode-art{height:clamp(150px,20vw,190px)}
+}
