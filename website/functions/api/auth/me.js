@@ -1,4 +1,4 @@
-import { json, currentUser } from "../../../_lib/auth.js";
+import { json, currentUser } from "../../_lib/auth.js";
 
 export async function onRequestGet({ request, env }) {
   if (!env.DB) return json({ authenticated: false, configured: false }, 503);
