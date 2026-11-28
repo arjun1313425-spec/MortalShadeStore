@@ -2,6 +2,11 @@ name = "mortalshade-store"
 pages_build_output_dir = "."
 compatibility_date = "2026-11-28"
 
+[vars]
+DISCORD_CLIENT_ID = "1576042622475043041"
+DISCORD_REDIRECT_URI = "https://mortalshadestore.pages.dev/api/auth/discord/callback"
+SITE_ORIGIN = "https://mortalshadestore.pages.dev"
+
 [[d1_databases]]
 binding = "DB"
 database_name = "mortalshade-auth"
