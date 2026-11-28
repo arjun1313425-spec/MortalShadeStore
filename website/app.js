@@ -56,7 +56,7 @@
         countText.textContent=(data.players?.online ?? 0)+" / "+(data.players?.max ?? "?")+" players online · "+(java?.online?"Java network":"Bedrock");
         if(light) light.classList.add("online");
       } else {
-        statusText.textContent="SERVER OFFLINE"; countText.textContent="No response from Java or Bedrock status checks";
+        statusText.textContent="SERVER UNDER MAINTENANCE"; countText.textContent="The MortalShade Network is temporarily unavailable while we carry out maintenance. Please check back soon.";
         if(light) light.classList.remove("online");
       }
     } catch (_) { statusText.textContent="STATUS UNAVAILABLE"; countText.textContent="Live player count could not be loaded"; if(light) light.classList.remove("online"); }
