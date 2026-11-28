@@ -868,3 +868,45 @@ button,input,select,textarea{font:inherit!important}
 .header-links{display:flex;align-items:center;gap:25px;margin-left:auto;margin-right:28px;color:#b9b4aa;font-size:10px;font-weight:700;letter-spacing:.12em}
 .header-links a{transition:color .18s}.header-links a:hover,.header-links a[aria-current="page"]{color:#e4a09a}
 @media(max-width:760px){.header-links{gap:12px;margin-right:10px;font-size:8px}.site-header .discord-button{display:none}}
+
+
+/* MortalShade animated entrance */
+.ms-intro{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#090a0b;color:#f5f0e8;opacity:1;visibility:visible;transition:opacity .6s ease,visibility .6s ease}
+.ms-intro.is-leaving{opacity:0;visibility:hidden;pointer-events:none}
+.ms-intro-inner{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;animation:ms-intro-rise .7s ease both}
+.ms-intro-emblem{position:relative;width:88px;height:88px;display:grid;place-items:center;border:1px solid #765052;border-radius:23px;background:radial-gradient(circle at 50% 20%,#402326,#171415 68%);box-shadow:0 0 70px #bd44452b,0 16px 42px #0008;overflow:hidden}
+.ms-intro-emblem img{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);object-fit:contain;z-index:2}
+.ms-intro-emblem span{font-size:48px;font-weight:900;color:#d75b60}
+.ms-intro-wordmark{margin-top:16px;font-size:clamp(25px,5vw,38px);font-weight:900;letter-spacing:.13em}
+.ms-intro-wordmark span{color:#d75b60}
+.ms-intro-subtitle{font-size:9px;letter-spacing:.48em;color:#b9a88e;margin-left:.48em}
+.ms-intro-track{width:190px;height:2px;margin-top:24px;background:#292526;overflow:hidden}
+.ms-intro-track span{display:block;width:42%;height:100%;background:#cf555a;box-shadow:0 0 14px #cf555a;animation:ms-intro-progress 1.25s ease-in-out infinite}
+.ms-intro-inner>p{margin-top:8px;color:#827d75;font-size:8px;letter-spacing:.25em}
+@keyframes ms-intro-progress{0%{transform:translateX(-110%)}100%{transform:translateX(340%)}}
+@keyframes ms-intro-rise{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.account-button{border:1px solid #705052;border-radius:7px;background:#21191a;color:#f4e9e5;padding:11px 14px;font-size:10px;font-weight:800;letter-spacing:.08em;cursor:pointer;white-space:nowrap;transition:background .18s,border-color .18s}
+.account-button:hover{border-color:#d05a5d;background:#302022}
+.player-login-dialog{width:min(460px,calc(100% - 28px));max-width:460px;padding:25px;border:1px solid #514345;border-radius:14px;background:#141617;color:#f4f1eb;box-shadow:0 32px 100px #000d}
+.player-login-dialog::backdrop{background:#000c;backdrop-filter:blur(6px)}
+.player-login-dialog .dialog-heading{align-items:center}
+.player-login-dialog .dialog-heading h2{margin:5px 0 0;font-size:24px;letter-spacing:-.04em}
+.login-intro{color:#aaa69e;font-size:13px;line-height:1.7;margin:18px 0}
+.login-provider{display:flex;width:100%;align-items:center;gap:13px;padding:14px;border:1px solid #464143;border-radius:9px;background:#1c1e20;color:#f4f1eb;text-align:left;cursor:pointer;transition:border-color .18s,transform .18s}
+.login-provider:hover{border-color:#bd5559;transform:translateY(-1px)}
+.provider-mark{width:36px;height:36px;display:grid;place-items:center;border-radius:8px;background:#302123;color:#e9a4a0;font-size:21px}
+.login-provider>span:nth-child(2){display:grid;gap:4px;flex:1}
+.login-provider strong{font-size:13px}
+.login-provider small{color:#aaa49b;font-size:10px}
+.provider-arrow{color:#c5a878;font-size:18px}
+.login-divider{display:flex;align-items:center;gap:12px;margin:22px 0;color:#8d877e;font-size:8px;letter-spacing:.13em;white-space:nowrap}
+.login-divider:before,.login-divider:after{content:"";height:1px;flex:1;background:#353738}
+.minecraft-link-form{display:grid;gap:9px}
+.minecraft-link-form label{font-size:11px;font-weight:700;color:#d9d2c7}
+.minecraft-link-form input{width:100%;padding:12px 13px;border:1px solid #494442;border-radius:7px;background:#0e1011;color:#f5f1eb;outline:none}
+.minecraft-link-form input:focus{border-color:#c75a5e}
+.minecraft-provider{margin-top:3px}
+.login-setup-status{margin:14px 0 0;padding:12px;border:1px solid #6b5145;border-radius:8px;background:#251d19;color:#e9c9b6;font-size:11px;line-height:1.65}
+.login-security-note{margin:17px 0 0;padding-top:14px;border-top:1px solid #343638;color:#89857d;font-size:10px;line-height:1.65}
+@media(max-width:760px){.account-button{font-size:8px;padding:9px 8px}.site-header .account-button{margin-left:auto}.header-links{margin-left:10px}.site-header .discord-button{display:none}}
+@media(prefers-reduced-motion:reduce){.ms-intro-inner,.ms-intro-track span{animation:none}.ms-intro{transition:none}}
