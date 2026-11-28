@@ -3,17 +3,15 @@
   if (splash) {
     let alreadyShown = false;
     try { alreadyShown = sessionStorage.getItem("ms-intro-seen") === "1"; } catch (_) {}
-    const hide = () => {
-      if (alreadyShown) { splash.remove(); return; }
-      splash.classList.add("is-leaving");
-      window.setTimeout(() => splash.remove(), 650);
-      try { sessionStorage.setItem("ms-intro-seen", "1"); } catch (_) {}
-    };
-    if (alreadyShown) splash.remove();
-    else if (document.readyState === "complete") window.setTimeout(hide, 1050);
-    else {
-      window.addEventListener("load", () => window.setTimeout(hide, 650), { once: true });
-      window.setTimeout(hide, 2600);
+    if (alreadyShown) {
+      splash.remove();
+    } else {
+      // Hold the intro for 2.35s, then fade for 0.65s: 3 seconds total.
+      window.setTimeout(() => {
+        splash.classList.add("is-leaving");
+        window.setTimeout(() => splash.remove(), 650);
+        try { sessionStorage.setItem("ms-intro-seen", "1"); } catch (_) {}
+      }, 2350);
     }
   }
 
