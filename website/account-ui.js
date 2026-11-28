@@ -1,11 +1,24 @@
 (() => {
   const splash = document.getElementById("ms-intro");
   if (splash) {
-    // Replay the three-second intro on every page load / reload.
-    window.setTimeout(() => {
-      splash.classList.add("is-leaving");
-      window.setTimeout(() => splash.remove(), 650);
-    }, 2350);
+    // Show on a fresh visit and on explicit reloads, but not while moving
+    // between pages inside the site (store, categories, policies, etc.).
+    let showIntro = true;
+    try {
+      const nav = performance.getEntriesByType("navigation")[0];
+      const isReload = nav?.type === "reload";
+      const hasVisitedThisTab = sessionStorage.getItem("ms-site-visited") === "1";
+      showIntro = isReload || !hasVisitedThisTab;
+      sessionStorage.setItem("ms-site-visited", "1");
+    } catch (_) {}
+    if (!showIntro) {
+      splash.remove();
+    } else {
+      window.setTimeout(() => {
+        splash.classList.add("is-leaving");
+        window.setTimeout(() => splash.remove(), 650);
+      }, 2350);
+    }
   }
 
   const dialog = document.getElementById("player-login-dialog");
