@@ -910,3 +910,5 @@ button,input,select,textarea{font:inherit!important}
 .login-security-note{margin:17px 0 0;padding-top:14px;border-top:1px solid #343638;color:#89857d;font-size:10px;line-height:1.65}
 @media(max-width:760px){.account-button{font-size:8px;padding:9px 8px}.site-header .account-button{margin-left:auto}.header-links{margin-left:10px}.site-header .discord-button{display:none}}
 @media(prefers-reduced-motion:reduce){.ms-intro-inner,.ms-intro-track span{animation:none}.ms-intro{transition:none}}
+
+#discord-logout[hidden]{display:none!important}
