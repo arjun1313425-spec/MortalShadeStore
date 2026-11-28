@@ -1,4 +1,4 @@
-import { json, getCookie, SESSION_COOKIE, sha256, sessionCookie } from "../../../_lib/auth.js";
+import { json, getCookie, SESSION_COOKIE, sha256, sessionCookie } from "../../_lib/auth.js";
 
 export async function onRequestPost({ request, env }) {
   const origin = request.headers.get("Origin");
