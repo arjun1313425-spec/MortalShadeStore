@@ -1,18 +1,11 @@
 (() => {
   const splash = document.getElementById("ms-intro");
   if (splash) {
-    let alreadyShown = false;
-    try { alreadyShown = sessionStorage.getItem("ms-intro-seen") === "1"; } catch (_) {}
-    if (alreadyShown) {
-      splash.remove();
-    } else {
-      // Hold the intro for 2.35s, then fade for 0.65s: 3 seconds total.
-      window.setTimeout(() => {
-        splash.classList.add("is-leaving");
-        window.setTimeout(() => splash.remove(), 650);
-        try { sessionStorage.setItem("ms-intro-seen", "1"); } catch (_) {}
-      }, 2350);
-    }
+    // Replay the three-second intro on every page load / reload.
+    window.setTimeout(() => {
+      splash.classList.add("is-leaving");
+      window.setTimeout(() => splash.remove(), 650);
+    }, 2350);
   }
 
   const dialog = document.getElementById("player-login-dialog");
