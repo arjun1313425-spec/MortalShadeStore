@@ -24,6 +24,7 @@
   const logout = document.getElementById("discord-logout");
   const minecraftForm = document.getElementById("minecraft-link-form");
   const status = document.getElementById("login-setup-status");
+  const defaultAccountLabel = "PLAYER LOGIN";
   const showStatus = (message) => {
     if (!status) return;
     status.textContent = message;
@@ -41,6 +42,7 @@
       const data = await response.json();
       if (data.authenticated && data.user) {
         const label = data.user.globalName || data.user.username;
+        if (open) open.textContent = "MY ACCOUNT";
         if (discord) {
           discord.querySelector("strong").textContent = "Connected: " + label;
           discord.querySelector("small").textContent = "Your Discord account is linked";
@@ -48,6 +50,8 @@
         }
         if (logout) logout.hidden = false;
         showStatus("Signed in with Discord as " + label + ".");
+      } else if (open) {
+        open.textContent = defaultAccountLabel;
       }
     } catch (_) {
       // Login UI remains usable if the auth service is not deployed yet.
@@ -69,6 +73,7 @@
         discord.querySelector("small").textContent = "Secure Discord account sign-in";
         discord.disabled = false;
       }
+      if (open) open.textContent = defaultAccountLabel;
       logout.hidden = true;
       showStatus("You have been signed out of Discord.");
     } catch (_) {
